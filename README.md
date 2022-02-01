@@ -2,6 +2,14 @@
 
 A Chrome extension that automatically identifies and closes duplicate browser tabs with identical URLs, helping reduce browser memory usage and tab clutter.
 
+## 🚀 Quick Install
+
+1. **Download**: [Download ZIP](https://github.com/skippdot/Close-Duplicate-Tab/archive/main.zip) or clone this repo
+2. **Extract**: Unzip the downloaded file
+3. **Chrome**: Go to `chrome://extensions/` and enable "Developer mode"
+4. **Load**: Click "Load unpacked" and select the `extension` folder
+5. **Done**: Start closing duplicate tabs! 🎉
+
 ## Features
 
 - **Duplicate Detection**: Automatically identifies tabs with identical URLs
@@ -20,8 +28,10 @@ A Chrome extension that automatically identifies and closes duplicate browser ta
 1. Download or clone this repository
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" in the top right
-4. Click "Load unpacked" and select the extension directory
+4. Click "Load unpacked" and select the `extension` folder (not the root directory)
 5. The extension will appear in your toolbar
+
+> **Important**: Make sure to select the `extension` folder, which contains only the necessary extension files.
 
 ## How It Works
 
@@ -66,48 +76,110 @@ The extension requires these permissions:
 
 ### Project Structure
 ```
-├── manifest.json          # Extension configuration
-├── close_tabs.js          # Main extension logic
-├── options.html           # Settings page
-├── options.js             # Settings functionality
-├── privacy-policy.html    # Privacy policy
-├── README.md             # This file
-└── icons/                # Extension icons
-    ├── icon_16.png
-    ├── icon_48.png
-    ├── icon_128.png
-    └── icon_128_gs.png   # Grayscale (inactive state)
+├── extension/            # 📁 Chrome Extension Files (load this folder)
+│   ├── manifest.json     # Extension configuration
+│   ├── close_tabs.js     # Main extension logic
+│   ├── options.html      # Settings page
+│   ├── options.js        # Settings functionality
+│   ├── privacy-policy.html # Privacy policy
+│   ├── README.md         # Extension-specific readme
+│   └── icon_*.png        # Extension icons
+├── tests/                # 🧪 Test files and framework
+├── docs/                 # 📚 Documentation and guides
+├── README.md             # This file (project overview)
+├── CHANGELOG.md          # Version history
+└── package.json          # Development dependencies
 ```
 
 ### Building
 No build process required - this is a vanilla JavaScript extension.
 
-### Testing
-1. Load the extension in developer mode
-2. Open multiple tabs with the same URL
-3. Check that the badge shows the number of duplicates
-4. Click the extension icon to close duplicates
-5. Verify that active/pinned tabs are preserved
+### Development & Testing
+1. **Load Extension**: Load the `extension` folder in Chrome developer mode
+2. **Run Tests**: `npm test` to run the automated test suite
+3. **Manual Testing**: Open multiple tabs with the same URL
+4. **Verify Badge**: Check that the badge shows the number of duplicates
+5. **Test Closing**: Click the extension icon to close duplicates
+6. **Check Preservation**: Verify that active/pinned tabs are preserved
 
-## Contributing
+For detailed testing instructions, see [TESTING_GUIDE.md](TESTING_GUIDE.md).
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## 👨‍💻 For Developers
 
-## Changelog
+### Quick Start
+```bash
+# Clone the repository
+git clone https://github.com/skippdot/Close-Duplicate-Tab.git
+cd Close-Duplicate-Tab
 
-### Version 2.5.1
-- ✅ Migrated to Manifest V3
-- ✅ Updated to use Service Workers
-- ✅ Replaced deprecated `chrome.browserAction` with `chrome.action`
-- ✅ Improved event-driven badge updates
-- ✅ Added privacy policy
+# Install development dependencies
+npm install
 
-### Version 2.5
-- Previous version (Manifest V2 - deprecated)
+# Run tests
+npm test
+
+# Load extension in Chrome
+# 1. Go to chrome://extensions/
+# 2. Enable Developer mode
+# 3. Click "Load unpacked"
+# 4. Select the "extension" folder
+```
+
+### Development Workflow
+1. **Make Changes**: Edit files in the `extension/` folder
+2. **Test Changes**: Run `npm test` for automated tests
+3. **Manual Testing**: Reload extension in Chrome and test manually
+4. **Documentation**: Update relevant docs in `docs/` folder
+
+### Project Structure
+- `extension/` - Chrome extension files (production ready)
+- `tests/` - Automated test suite with Jest
+- `docs/` - Development documentation and guides
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how to get started:
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Test** your changes (`npm test`)
+4. **Document** your changes (update README/CHANGELOG as needed)
+5. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+6. **Push** to the branch (`git push origin feature/amazing-feature`)
+7. **Open** a Pull Request
+
+### Contribution Guidelines
+- All tests must pass (`npm test`)
+- Follow existing code style and patterns
+- Update documentation for new features
+- Add tests for new functionality
+- Keep commits focused and descriptive
+
+## 📁 Folder Structure
+
+### For Users (Extension Installation)
+- **`extension/`** - Contains all files needed to load the extension in Chrome
+  - This is the only folder you need to install the extension
+
+### For Developers
+- **`tests/`** - Automated test suite (Jest framework)
+- **`docs/`** - Development documentation and testing guides
+- **Root files** - Project configuration (package.json, README, CHANGELOG)
+
+## 📋 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
+
+### Latest Release - Version 2.6.0
+- ✅ **Fixed critical tab counting bug** (now handles 500+ tabs correctly)
+- ✅ **Added Marvellous Suspender compatibility**
+- ✅ **Implemented auto-close feature**
+- ✅ **Fixed currentWindowOnly functionality**
+- ✅ **Added comprehensive error handling**
+- ✅ **Modernized entire codebase**
+- ✅ **Added 24 automated tests**
+- ✅ **Enhanced options page**
+- ✅ **Added keyboard shortcuts**
 
 ## License
 
