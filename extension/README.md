@@ -5,6 +5,7 @@ A Chrome extension that automatically identifies and closes duplicate browser ta
 ## 🚀 Quick Installation
 
 ### Method 1: Load from GitHub (Recommended)
+
 1. **Download**: Clone or download this repository
 2. **Open Chrome**: Go to `chrome://extensions/`
 3. **Enable Developer Mode**: Toggle the switch in the top right
@@ -12,7 +13,8 @@ A Chrome extension that automatically identifies and closes duplicate browser ta
 5. **Done**: The extension will appear in your toolbar
 
 ### Method 2: Chrome Web Store
-*Coming soon - the extension is being updated with new features*
+
+_Coming soon - the extension is being updated with new features_
 
 ## ✨ Features
 
@@ -29,12 +31,14 @@ A Chrome extension that automatically identifies and closes duplicate browser ta
 ## 🎮 How to Use
 
 ### Basic Usage
+
 1. **Automatic Detection**: The extension automatically monitors your tabs
 2. **View Duplicates**: Check the badge number on the extension icon
 3. **Close Duplicates**: Click the extension icon or use `Ctrl+Shift+D`
 4. **Smart Preservation**: Active and pinned tabs are automatically preserved
 
 ### Settings
+
 Right-click the extension icon and select "Options" to configure:
 
 - **Auto Close**: Automatically close duplicates as they're detected (2-second delay)
@@ -42,6 +46,7 @@ Right-click the extension icon and select "Options" to configure:
 - **Sort Tabs**: Reorganize tabs by URL when closing duplicates
 
 ### Advanced Features
+
 - **Tab Suspender Compatibility**: Works seamlessly with Marvellous Suspender and other tab suspender extensions
 - **Bulk Operations**: Efficiently handles hundreds of tabs
 - **Smart Preferences**: Prioritizes active tabs over inactive, pinned over unpinned
@@ -64,17 +69,20 @@ Right-click the extension icon and select "Options" to configure:
 ## 🐛 Troubleshooting
 
 ### Extension Not Working?
+
 1. **Refresh Extension**: Go to `chrome://extensions/` and click the refresh icon
 2. **Check Permissions**: Ensure the extension has access to tabs
 3. **Restart Chrome**: Sometimes a browser restart helps
 4. **Check Console**: Open Developer Tools and check for error messages
 
 ### Badge Not Updating?
+
 1. **Wait a Moment**: Badge updates automatically when tabs change
 2. **Click Extension**: Manual click will force a refresh
 3. **Check Settings**: Ensure "Current Window Only" setting matches your needs
 
 ### Auto-Close Not Working?
+
 1. **Check Settings**: Ensure "Auto Close" is enabled in options
 2. **Wait 2 Seconds**: Auto-close has a 2-second delay to prevent rapid firing
 3. **Create Clear Duplicates**: Ensure you have exact URL matches
