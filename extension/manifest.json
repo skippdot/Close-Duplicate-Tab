@@ -5,7 +5,7 @@
 
   "name": "Close Duplicate Tab",
   "description": "Close tabs which are duplicated. Only tabs with exact URL matches are closed.",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "background": {
     "service_worker": "close_tabs.js"
   },

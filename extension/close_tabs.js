@@ -101,6 +101,26 @@ function queryTabsWithFilter(callback) {
       return;
     }
     console.log(`Found ${tabs.length} tabs with filter (currentWindowOnly: ${currentWindowOnly})`);
+
+    // Additional debugging for the counting issue
+    if (tabs.length < 10) {
+      console.warn('Suspiciously low tab count detected. This might indicate an issue.');
+      console.log('Query options used:', queryOptions);
+      console.log('Current settings:', { currentWindowOnly, autoClose, sortTabs });
+
+      // Try querying all tabs to compare
+      chrome.tabs.query({}, allTabs => {
+        if (!chrome.runtime.lastError) {
+          console.log(`Total tabs in all windows: ${allTabs.length}`);
+          if (allTabs.length > tabs.length) {
+            console.warn(
+              'Detected difference between filtered and all tabs. This might explain the counting issue.'
+            );
+          }
+        }
+      });
+    }
+
     callback(tabs);
   });
 }
@@ -126,6 +146,39 @@ function init() {
   loadConfigs(() => {
     queryTabsWithFilter(tabs => {
       initTabUrl(tabs);
+      stateChanged = true;
+      refreshBadge();
+    });
+  });
+}
+
+// Force refresh all tab data - useful for debugging counting issues
+function forceRefreshAllTabs() {
+  console.log('Force refreshing all tab data...');
+
+  // Clear existing data
+  tabUrl = {};
+  stateChanged = true;
+
+  // Query all tabs regardless of settings to get accurate count
+  chrome.tabs.query({}, allTabs => {
+    if (chrome.runtime.lastError) {
+      console.error('Error in force refresh:', chrome.runtime.lastError);
+      return;
+    }
+
+    console.log(`Force refresh found ${allTabs.length} total tabs`);
+    initTabUrl(allTabs);
+
+    // Now apply filtering if needed
+    queryTabsWithFilter(filteredTabs => {
+      if (currentWindowOnly && filteredTabs.length !== allTabs.length) {
+        console.log(
+          `Filtering to current window: ${filteredTabs.length} of ${allTabs.length} tabs`
+        );
+        initTabUrl(filteredTabs);
+      }
+
       stateChanged = true;
       refreshBadge();
     });
@@ -261,11 +314,23 @@ function refreshBadge() {
 chrome.runtime.onInstalled.addListener(details => {
   console.log('Extension installed/updated:', details);
   init();
+
+  // Set up periodic refresh to prevent counting issues
+  setInterval(() => {
+    console.log('Periodic tab data refresh...');
+    forceRefreshAllTabs();
+  }, 30000); // Refresh every 30 seconds
 });
 
 chrome.runtime.onStartup.addListener(details => {
   console.log('Extension startup:', details);
   init();
+
+  // Set up periodic refresh to prevent counting issues
+  setInterval(() => {
+    console.log('Periodic tab data refresh...');
+    forceRefreshAllTabs();
+  }, 30000); // Refresh every 30 seconds
 });
 
 // Auto-close handler with debouncing
@@ -322,7 +387,14 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
 
 chrome.action.onClicked.addListener(() => {
   console.log('Extension clicked - Settings:', { autoClose, currentWindowOnly, sortTabs });
-  closeDuplicateTabs();
+
+  // Force refresh before closing duplicates to ensure accurate data
+  forceRefreshAllTabs();
+
+  // Small delay to allow refresh to complete
+  setTimeout(() => {
+    closeDuplicateTabs();
+  }, 500);
 });
 
 function closeDuplicateTabs(isAutoMode = false) {
