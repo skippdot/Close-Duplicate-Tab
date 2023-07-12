@@ -284,6 +284,51 @@
         color: #1976d2;
         font-weight: bold;
       }
+      .footer-section {
+        margin-top: 30px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-top: 3px solid #6c757d;
+        text-align: center;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+      .footer-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 15px;
+        background: white;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #495057;
+        transition: all 0.2s ease;
+        font-size: 14px;
+      }
+      .footer-link:hover {
+        background: #e9ecef;
+        border-color: #adb5bd;
+        text-decoration: none;
+        color: #212529;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .footer-link-icon {
+        font-size: 16px;
+      }
+      .footer-description {
+        color: #6c757d;
+        font-size: 13px;
+        margin-top: 15px;
+        line-height: 1.4;
+      }
       .search-container {
         margin-bottom: 15px;
         position: relative;
@@ -425,6 +470,14 @@
         >
           <strong>Note:</strong> Statistics are updated in real-time as you browse. If you see
           "Tabs: 1" but have many tabs open, try refreshing this page or reloading the extension.
+          This extension respects your privacy -
+          <a
+            href="https://skippdot.github.io/Close-Duplicate-Tab/extension/privacy-policy.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: #856404; text-decoration: underline"
+            >view our privacy policy</a
+          >.
         </div>
       </div>
 
@@ -589,6 +642,35 @@
             <li>Works with tab suspender extensions like Marvellous Suspender</li>
             <li>All processing happens locally - no data is sent to external servers</li>
           </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 style="margin: 0 0 5px 0; color: #495057">📋 Privacy & Source Code</h4>
+          <div class="footer-links">
+            <a
+              href="https://skippdot.github.io/Close-Duplicate-Tab/extension/privacy-policy.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+            >
+              <span class="footer-link-icon">🔒</span>
+              <span>Privacy Policy</span>
+            </a>
+            <a
+              href="https://github.com/skippdot/Close-Duplicate-Tab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+            >
+              <span class="footer-link-icon">📂</span>
+              <span>Source Code</span>
+            </a>
+          </div>
+          <div class="footer-description">
+            This extension is open source and respects your privacy. No data is collected or
+            transmitted to external servers. All processing happens locally in your browser. View
+            our privacy policy and source code for complete transparency.
+          </div>
         </div>
       </div>
     </div>
