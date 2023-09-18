@@ -1,0 +1,270 @@
+{
+  "extensionName": {
+    "message": "Cerrar Pestañas Duplicadas",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Detecta y cierra automáticamente las pestañas del navegador duplicadas. Ahorra memoria, reduce el desorden. Funciona con extensiones de suspensión de pestañas.",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "Configuración de Cerrar Pestañas Duplicadas",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "Versión 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "Estadísticas de Pestañas Actuales",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "Actualizar",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "Total de Pestañas",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "URLs Únicas",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "Pestañas Duplicadas",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "Pestañas Suspendidas",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "URLs Duplicadas Encontradas",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "Todos los Dominios",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "Buscar dominios o páginas...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "Las estadísticas se actualizan en tiempo real mientras navegas. Si ves \"Pestañas: 1\" pero tienes muchas pestañas abiertas, intenta actualizar esta página o recargar la extensión. Esta extensión respeta tu privacidad -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "ver nuestra política de privacidad",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "Configuración de Automatización",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "Cerrar Automáticamente Pestañas Duplicadas",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "Cerrar automáticamente las pestañas duplicadas tan pronto como se detecten, sin requerir intervención manual.",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "Cómo funciona:",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "Monitorea las pestañas en tiempo real para detectar duplicados",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "Espera 2 segundos después de detectar duplicados antes de cerrar (previene activación rápida)",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "Preserva automáticamente las pestañas activas y fijadas",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "Funciona con pestañas suspendidas de extensiones como Marvellous Suspender",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "Ideal para:",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "Usuarios que frecuentemente abren pestañas duplicadas por accidente",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "Usuarios intensivos de pestañas que quieren limpieza automática",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "Reducir el mantenimiento manual de la organización de pestañas",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "Solo Ventana Actual",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "Limitar la detección y cierre de duplicados a las pestañas en la ventana del navegador actualmente activa solamente.",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "Cuando está habilitado:",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "Solo escanea las pestañas en la ventana que estás usando actualmente",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "Ignora las pestañas en otras ventanas del navegador",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "El contador del badge muestra duplicados solo en la ventana actual",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "El cierre manual (Ctrl+Shift+D) afecta solo la ventana actual",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "Usuarios que trabajan con múltiples ventanas del navegador",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "Mantener diferentes proyectos/contextos separados",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "Prevenir el cierre accidental de pestañas en otras ventanas",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "Configuración de Organización",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "Ordenar Pestañas por URL",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "Esta configuración ordena TODAS las pestañas en cada ventana alfabéticamente por URL, no solo los duplicados. Agrupa las pestañas relacionadas juntas y organiza toda tu barra de pestañas para mejor navegación.",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "Ordena TODAS las pestañas alfabéticamente por su URL (no solo duplicados)",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "Agrupa las pestañas del mismo dominio juntas",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "Mantiene la separación de ventanas (ordena dentro de cada ventana)",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "Preserva las posiciones de las pestañas fijadas",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "Ocurre cada vez que cierras duplicados",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "Antes del ordenamiento:",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "Después del ordenamiento:",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "Usuarios que prefieren pestañas organizadas y agrupadas",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "Encontrar más fácilmente las pestañas relacionadas",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "Mantener una organización consistente de pestañas",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "Guardar Configuración",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "¡Configuración guardada exitosamente!",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "Error al guardar la configuración:",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "Error al cargar la configuración:",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "Consejos Rápidos",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "Usa Ctrl+Shift+D (o Cmd+Shift+D en Mac) para cerrar manualmente los duplicados",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "El badge de la extensión muestra el número de pestañas duplicadas detectadas",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "Las pestañas activas y fijadas siempre se preservan al cerrar duplicados",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "Funciona con extensiones de suspensión de pestañas como Marvellous Suspender",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "Todo el procesamiento ocurre localmente - no se envían datos a servidores externos",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "Privacidad y Código Fuente",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "Política de Privacidad",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "Código Fuente",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "Esta extensión es de código abierto y respeta tu privacidad. No se recopilan ni transmiten datos a servidores externos. Todo el procesamiento ocurre localmente en tu navegador. Ve nuestra política de privacidad y código fuente para completa transparencia.",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "No se encontraron dominios o páginas coincidentes",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "pestañas",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "Importante:",
+    "description": "Important label"
+  }
+}

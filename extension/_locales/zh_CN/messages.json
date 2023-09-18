@@ -1,0 +1,270 @@
+{
+  "extensionName": {
+    "message": "关闭重复标签页",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "自动检测并关闭重复的浏览器标签页。节省内存，减少混乱。与标签页暂停扩展兼容。",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "关闭重复标签页设置",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "版本 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "当前标签页统计",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "刷新",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "总标签页数",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "唯一网址",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "重复标签页",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "已暂停标签页",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "发现重复网址",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "所有域名",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "搜索域名或页面...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "统计数据在您浏览时实时更新。如果您看到\"标签页：1\"但实际打开了很多标签页，请尝试刷新此页面或重新加载扩展。此扩展尊重您的隐私 -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "查看我们的隐私政策",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "自动化设置",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "自动关闭重复标签页",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "一旦检测到重复标签页就自动关闭，无需手动干预。",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "工作原理：",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "实时监控标签页以检测重复项",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "检测到重复项后等待2秒再关闭（防止快速触发）",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "自动保留活动和固定的标签页",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "与Marvellous Suspender等扩展的暂停标签页兼容",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "最适合：",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "经常意外打开重复标签页的用户",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "希望自动清理的重度标签页用户",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "减少标签页组织的手动维护",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "仅当前窗口",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "将重复检测和关闭限制为仅当前活动浏览器窗口中的标签页。",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "启用时：",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "仅扫描您当前使用的窗口中的标签页",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "忽略其他浏览器窗口中的标签页",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "徽章计数仅显示当前窗口中的重复项",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "手动关闭（Ctrl+Shift+D）仅影响当前窗口",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "使用多个浏览器窗口工作的用户",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "保持不同项目/上下文分离",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "防止意外关闭其他窗口中的标签页",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "组织设置",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "按网址排序标签页",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "此设置按网址字母顺序排序每个窗口中的所有标签页，而不仅仅是重复项。它将相关标签页组合在一起，并组织整个标签页栏以便更好地导航。",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "按网址字母顺序排序所有标签页（不仅仅是重复项）",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "将来自同一域名的标签页组合在一起",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "保持窗口分离（在每个窗口内排序）",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "保留固定标签页的位置",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "每次关闭重复项时都会发生",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "排序前：",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "排序后：",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "喜欢有组织、分组标签页的用户",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "更容易找到相关标签页",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "保持一致的标签页组织",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "保存设置",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "设置保存成功！",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "保存设置时出错：",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "加载设置时出错：",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "快速提示",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "使用 Ctrl+Shift+D（Mac上为 Cmd+Shift+D）手动关闭重复项",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "扩展徽章显示检测到的重复标签页数量",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "关闭重复项时始终保留活动和固定的标签页",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "与Marvellous Suspender等标签页暂停扩展兼容",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "所有处理都在本地进行 - 不会向外部服务器发送数据",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "隐私和源代码",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "隐私政策",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "源代码",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "此扩展是开源的并尊重您的隐私。不会收集或传输数据到外部服务器。所有处理都在您的浏览器中本地进行。查看我们的隐私政策和源代码以获得完全透明度。",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "未找到匹配的域名或页面",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "个标签页",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "重要：",
+    "description": "Important label"
+  }
+}

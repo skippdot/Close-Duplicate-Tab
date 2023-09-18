@@ -21,12 +21,14 @@ function saveOptions(event) {
     function () {
       if (chrome.runtime.lastError) {
         console.error('Error saving options:', chrome.runtime.lastError);
-        showStatus('Error saving settings: ' + chrome.runtime.lastError.message, 'error');
+        const errorMsg =
+          chrome.i18n.getMessage('errorSavingSettings') + ' ' + chrome.runtime.lastError.message;
+        showStatus('errorSavingSettings', 'error', errorMsg);
         return;
       }
 
       console.log('Settings saved:', { autoClose, currentWindowOnly, sortTabs });
-      showStatus('Settings saved successfully!', 'success');
+      showStatus('settingsSaved', 'success', 'Settings saved successfully!');
     }
   );
 }
@@ -63,8 +65,10 @@ function restoreOptions() {
 }
 
 // Show status message with styling
-function showStatus(message, type = 'success') {
+function showStatus(messageKey, type = 'success', fallbackMessage = '') {
   const statusDiv = document.getElementById('status');
+  // Try to get i18n message, fallback to provided message or key
+  const message = chrome.i18n.getMessage(messageKey) || fallbackMessage || messageKey;
   statusDiv.textContent = message;
   statusDiv.className = `status-message status-${type}`;
   statusDiv.style.display = 'block';
@@ -74,6 +78,33 @@ function showStatus(message, type = 'success') {
     setTimeout(() => {
       statusDiv.style.display = 'none';
     }, 3000);
+  }
+}
+
+// Initialize internationalization
+function initializeI18n() {
+  // Update all elements with data-i18n attributes
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const messageKey = element.getAttribute('data-i18n');
+    const message = chrome.i18n.getMessage(messageKey);
+    if (message) {
+      if (element.tagName === 'INPUT' && element.type === 'text') {
+        element.placeholder = message;
+      } else {
+        element.textContent = message;
+      }
+    }
+  });
+
+  // Update document title
+  const titleElement = document.querySelector('title[data-i18n]');
+  if (titleElement) {
+    const messageKey = titleElement.getAttribute('data-i18n');
+    const message = chrome.i18n.getMessage(messageKey);
+    if (message) {
+      document.title = message;
+    }
   }
 }
 
@@ -379,6 +410,7 @@ function initializeSearch() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
+  initializeI18n();
   restoreOptions();
   loadTabStatistics();
   initializeCollapsibleSettings();

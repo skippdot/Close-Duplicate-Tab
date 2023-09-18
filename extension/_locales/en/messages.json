@@ -1,0 +1,278 @@
+{
+  "extensionName": {
+    "message": "Close Duplicate Tab",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Automatically detect and close duplicate browser tabs. Saves memory, reduces clutter. Works with tab suspender extensions.",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "Close Duplicate Tabs Settings",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "Version 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "Current Tab Statistics",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "Refresh",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "Total Tabs",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "Unique URLs",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "Duplicate Tabs",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "Suspended Tabs",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "Duplicate URLs Found",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "All Domains",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "Search domains or pages...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "Statistics are updated in real-time as you browse. If you see \"Tabs: 1\" but have many tabs open, try refreshing this page or reloading the extension. This extension respects your privacy -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "view our privacy policy",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "Automation Settings",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "Auto Close Duplicate Tabs",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "Automatically close duplicate tabs as they are detected, without requiring manual intervention.",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "How it works:",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "Monitors tabs in real-time for duplicates",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "Waits 2 seconds after detecting duplicates before closing (prevents rapid firing)",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "Preserves active and pinned tabs automatically",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "Works with suspended tabs from extensions like Marvellous Suspender",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "Best for:",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "Users who frequently open duplicate tabs accidentally",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "Heavy tab users who want automatic cleanup",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "Reducing manual maintenance of tab organization",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "Current Window Only",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "Limit duplicate detection and closing to tabs in the currently active browser window only.",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "When enabled:",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "Only scans tabs in the window you're currently using",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "Ignores tabs in other browser windows",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "Badge count shows duplicates in current window only",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "Manual closing (Ctrl+Shift+D) affects current window only",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "Users who work with multiple browser windows",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "Keeping different projects/contexts separated",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "Preventing accidental closure of tabs in other windows",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "Organization Settings",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "Sort Tabs by URL",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "This setting sorts ALL tabs in each window alphabetically by URL, not just duplicates. It groups related tabs together and organizes your entire tab bar for better navigation.",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "Sorts ALL tabs alphabetically by their URL (not just duplicates)",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "Groups tabs from the same domain together",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "Maintains window separation (sorts within each window)",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "Preserves pinned tab positions",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "Happens every time you close duplicates",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "Before sorting:",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "After sorting:",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "Users who prefer organized, grouped tabs",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "Finding related tabs more easily",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "Maintaining consistent tab organization",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "Save Settings",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "Settings saved successfully!",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "Error saving settings:",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "Error loading settings:",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "Quick Tips",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "Use Ctrl+Shift+D (or Cmd+Shift+D on Mac) to manually close duplicates",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "The extension badge shows the number of duplicate tabs detected",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "Active and pinned tabs are always preserved when closing duplicates",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "Works with tab suspender extensions like Marvellous Suspender",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "All processing happens locally - no data is sent to external servers",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "Privacy & Source Code",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "Privacy Policy",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "Source Code",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "This extension is open source and respects your privacy. No data is collected or transmitted to external servers. All processing happens locally in your browser. View our privacy policy and source code for complete transparency.",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "No matching domains or pages found",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "tabs",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "Important:",
+    "description": "Important label"
+  },
+  "commandDescription": {
+    "message": "Close duplicate tabs",
+    "description": "Description for keyboard command"
+  },
+  "chromeWebStore": {
+    "message": "Chrome Web Store",
+    "description": "Chrome Web Store link text"
+  }
+}

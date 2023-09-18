@@ -1,0 +1,270 @@
+{
+  "extensionName": {
+    "message": "Chiudi Schede Duplicate",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Rileva e chiude automaticamente le schede del browser duplicate. Risparmia memoria, riduce il disordine. Funziona con le estensioni di sospensione delle schede.",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "Impostazioni Chiusura Schede Duplicate",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "Versione 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "Statistiche Schede Attuali",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "Aggiorna",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "Totale Schede",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "URL Unici",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "Schede Duplicate",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "Schede Sospese",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "URL Duplicati Trovati",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "Tutti i Domini",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "Cerca domini o pagine...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "Le statistiche vengono aggiornate in tempo reale durante la navigazione. Se vedi \"Schede: 1\" ma hai molte schede aperte, prova ad aggiornare questa pagina o ricaricare l'estensione. Questa estensione rispetta la tua privacy -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "visualizza la nostra politica sulla privacy",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "Impostazioni Automazione",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "Chiudi Automaticamente Schede Duplicate",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "Chiudi automaticamente le schede duplicate non appena vengono rilevate, senza richiedere intervento manuale.",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "Come funziona:",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "Monitora le schede in tempo reale per i duplicati",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "Aspetta 2 secondi dopo aver rilevato duplicati prima di chiudere (previene l'attivazione rapida)",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "Preserva automaticamente le schede attive e fissate",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "Funziona con schede sospese da estensioni come Marvellous Suspender",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "Ideale per:",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "Utenti che aprono frequentemente schede duplicate per errore",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "Utenti intensivi di schede che vogliono pulizia automatica",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "Ridurre la manutenzione manuale dell'organizzazione delle schede",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "Solo Finestra Corrente",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "Limita il rilevamento e la chiusura dei duplicati alle schede nella finestra del browser attualmente attiva solamente.",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "Quando abilitato:",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "Scansiona solo le schede nella finestra che stai usando attualmente",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "Ignora le schede in altre finestre del browser",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "Il contatore del badge mostra i duplicati solo nella finestra corrente",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "La chiusura manuale (Ctrl+Shift+D) influisce solo sulla finestra corrente",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "Utenti che lavorano con più finestre del browser",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "Mantenere progetti/contesti diversi separati",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "Prevenire la chiusura accidentale di schede in altre finestre",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "Impostazioni Organizzazione",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "Ordina Schede per URL",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "Questa impostazione ordina TUTTE le schede in ogni finestra alfabeticamente per URL, non solo i duplicati. Raggruppa le schede correlate insieme e organizza l'intera barra delle schede per una migliore navigazione.",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "Ordina TUTTE le schede alfabeticamente per il loro URL (non solo i duplicati)",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "Raggruppa le schede dello stesso dominio insieme",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "Mantiene la separazione delle finestre (ordina all'interno di ogni finestra)",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "Preserva le posizioni delle schede fissate",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "Accade ogni volta che chiudi i duplicati",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "Prima dell'ordinamento:",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "Dopo l'ordinamento:",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "Utenti che preferiscono schede organizzate e raggruppate",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "Trovare più facilmente le schede correlate",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "Mantenere un'organizzazione coerente delle schede",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "Salva Impostazioni",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "Impostazioni salvate con successo!",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "Errore nel salvare le impostazioni:",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "Errore nel caricare le impostazioni:",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "Suggerimenti Rapidi",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "Usa Ctrl+Shift+D (o Cmd+Shift+D su Mac) per chiudere manualmente i duplicati",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "Il badge dell'estensione mostra il numero di schede duplicate rilevate",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "Le schede attive e fissate sono sempre preservate quando si chiudono i duplicati",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "Funziona con estensioni di sospensione schede come Marvellous Suspender",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "Tutta l'elaborazione avviene localmente - nessun dato viene inviato a server esterni",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "Privacy e Codice Sorgente",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "Politica sulla Privacy",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "Codice Sorgente",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "Questa estensione è open source e rispetta la tua privacy. Nessun dato viene raccolto o trasmesso a server esterni. Tutta l'elaborazione avviene localmente nel tuo browser. Visualizza la nostra politica sulla privacy e il codice sorgente per completa trasparenza.",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "Nessun dominio o pagina corrispondente trovato",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "schede",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "Importante:",
+    "description": "Important label"
+  }
+}

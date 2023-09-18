@@ -1,0 +1,270 @@
+{
+  "extensionName": {
+    "message": "Закрыть Дублирующие Вкладки",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Автоматически обнаруживает и закрывает дублирующие вкладки браузера. Экономит память, уменьшает беспорядок. Работает с расширениями приостановки вкладок.",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "Настройки Закрытия Дублирующих Вкладок",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "Версия 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "Текущая Статистика Вкладок",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "Обновить",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "Всего Вкладок",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "Уникальные URL",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "Дублирующие Вкладки",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "Приостановленные Вкладки",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "Найдены Дублирующие URL",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "Все Домены",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "Поиск доменов или страниц...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "Статистика обновляется в реальном времени во время просмотра. Если вы видите \"Вкладки: 1\", но у вас открыто много вкладок, попробуйте обновить эту страницу или перезагрузить расширение. Это расширение уважает вашу конфиденциальность -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "посмотреть нашу политику конфиденциальности",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "Настройки Автоматизации",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "Автоматически Закрывать Дублирующие Вкладки",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "Автоматически закрывать дублирующие вкладки при их обнаружении, без необходимости ручного вмешательства.",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "Как это работает:",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "Отслеживает вкладки в реальном времени на предмет дубликатов",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "Ждет 2 секунды после обнаружения дубликатов перед закрытием (предотвращает быстрое срабатывание)",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "Автоматически сохраняет активные и закрепленные вкладки",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "Работает с приостановленными вкладками из расширений типа Marvellous Suspender",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "Лучше всего для:",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "Пользователей, которые часто случайно открывают дублирующие вкладки",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "Активных пользователей вкладок, которые хотят автоматическую очистку",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "Сокращения ручного обслуживания организации вкладок",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "Только Текущее Окно",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "Ограничить обнаружение и закрытие дубликатов только вкладками в текущем активном окне браузера.",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "При включении:",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "Сканирует только вкладки в окне, которое вы используете в данный момент",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "Игнорирует вкладки в других окнах браузера",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "Счетчик значка показывает дубликаты только в текущем окне",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "Ручное закрытие (Ctrl+Shift+D) влияет только на текущее окно",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "Пользователей, работающих с несколькими окнами браузера",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "Разделения различных проектов/контекстов",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "Предотвращения случайного закрытия вкладок в других окнах",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "Настройки Организации",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "Сортировать Вкладки по URL",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "Эта настройка сортирует ВСЕ вкладки в каждом окне по алфавиту по URL, а не только дубликаты. Она группирует связанные вкладки вместе и организует всю панель вкладок для лучшей навигации.",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "Сортирует ВСЕ вкладки по алфавиту по их URL (не только дубликаты)",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "Группирует вкладки с одного домена вместе",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "Поддерживает разделение окон (сортирует в каждом окне)",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "Сохраняет позиции закрепленных вкладок",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "Происходит каждый раз при закрытии дубликатов",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "До сортировки:",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "После сортировки:",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "Пользователей, предпочитающих организованные, сгруппированные вкладки",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "Более легкого поиска связанных вкладок",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "Поддержания последовательной организации вкладок",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "Сохранить Настройки",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "Настройки успешно сохранены!",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "Ошибка сохранения настроек:",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "Ошибка загрузки настроек:",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "Быстрые Советы",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "Используйте Ctrl+Shift+D (или Cmd+Shift+D на Mac) для ручного закрытия дубликатов",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "Значок расширения показывает количество обнаруженных дублирующих вкладок",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "Активные и закрепленные вкладки всегда сохраняются при закрытии дубликатов",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "Работает с расширениями приостановки вкладок типа Marvellous Suspender",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "Вся обработка происходит локально - никакие данные не отправляются на внешние серверы",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "Конфиденциальность и Исходный Код",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "Политика Конфиденциальности",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "Исходный Код",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "Это расширение с открытым исходным кодом и уважает вашу конфиденциальность. Никакие данные не собираются и не передаются на внешние серверы. Вся обработка происходит локально в вашем браузере. Посмотрите нашу политику конфиденциальности и исходный код для полной прозрачности.",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "Не найдено подходящих доменов или страниц",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "вкладок",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "Важно:",
+    "description": "Important label"
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "extensionName": {
+    "message": "Fermer les Onglets Dupliqués",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Détecte et ferme automatiquement les onglets de navigateur dupliqués. Économise la mémoire, réduit l'encombrement. Fonctionne avec les extensions de suspension d'onglets.",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "Paramètres de Fermeture des Onglets Dupliqués",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "Version 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "Statistiques des Onglets Actuels",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "Actualiser",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "Total des Onglets",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "URLs Uniques",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "Onglets Dupliqués",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "Onglets Suspendus",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "URLs Dupliquées Trouvées",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "Tous les Domaines",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "Rechercher des domaines ou des pages...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "Les statistiques sont mises à jour en temps réel pendant votre navigation. Si vous voyez \"Onglets: 1\" mais que vous avez de nombreux onglets ouverts, essayez d'actualiser cette page ou de recharger l'extension. Cette extension respecte votre vie privée -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "voir notre politique de confidentialité",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "Paramètres d'Automatisation",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "Fermer Automatiquement les Onglets Dupliqués",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "Fermer automatiquement les onglets dupliqués dès qu'ils sont détectés, sans nécessiter d'intervention manuelle.",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "Comment ça marche :",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "Surveille les onglets en temps réel pour détecter les doublons",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "Attend 2 secondes après la détection de doublons avant de fermer (évite le déclenchement rapide)",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "Préserve automatiquement les onglets actifs et épinglés",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "Fonctionne avec les onglets suspendus d'extensions comme Marvellous Suspender",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "Idéal pour :",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "Les utilisateurs qui ouvrent fréquemment des onglets dupliqués par accident",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "Les gros utilisateurs d'onglets qui veulent un nettoyage automatique",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "Réduire la maintenance manuelle de l'organisation des onglets",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "Fenêtre Actuelle Seulement",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "Limiter la détection et la fermeture des doublons aux onglets de la fenêtre de navigateur actuellement active uniquement.",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "Quand activé :",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "Scanne uniquement les onglets de la fenêtre que vous utilisez actuellement",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "Ignore les onglets des autres fenêtres du navigateur",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "Le compteur du badge affiche les doublons de la fenêtre actuelle uniquement",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "La fermeture manuelle (Ctrl+Shift+D) affecte la fenêtre actuelle uniquement",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "Les utilisateurs qui travaillent avec plusieurs fenêtres de navigateur",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "Garder différents projets/contextes séparés",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "Prévenir la fermeture accidentelle d'onglets dans d'autres fenêtres",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "Paramètres d'Organisation",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "Trier les Onglets par URL",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "Ce paramètre trie TOUS les onglets de chaque fenêtre par ordre alphabétique par URL, pas seulement les doublons. Il groupe les onglets liés ensemble et organise toute votre barre d'onglets pour une meilleure navigation.",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "Trie TOUS les onglets par ordre alphabétique par leur URL (pas seulement les doublons)",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "Groupe les onglets du même domaine ensemble",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "Maintient la séparation des fenêtres (trie dans chaque fenêtre)",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "Préserve les positions des onglets épinglés",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "Se produit à chaque fois que vous fermez des doublons",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "Avant le tri :",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "Après le tri :",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "Les utilisateurs qui préfèrent des onglets organisés et groupés",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "Trouver plus facilement les onglets liés",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "Maintenir une organisation cohérente des onglets",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "Enregistrer les Paramètres",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "Paramètres enregistrés avec succès !",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "Erreur lors de l'enregistrement des paramètres :",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "Erreur lors du chargement des paramètres :",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "Conseils Rapides",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "Utilisez Ctrl+Shift+D (ou Cmd+Shift+D sur Mac) pour fermer manuellement les doublons",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "Le badge de l'extension affiche le nombre d'onglets dupliqués détectés",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "Les onglets actifs et épinglés sont toujours préservés lors de la fermeture des doublons",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "Fonctionne avec les extensions de suspension d'onglets comme Marvellous Suspender",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "Tout le traitement se fait localement - aucune donnée n'est envoyée vers des serveurs externes",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "Confidentialité et Code Source",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "Politique de Confidentialité",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "Code Source",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "Cette extension est open source et respecte votre vie privée. Aucune donnée n'est collectée ou transmise vers des serveurs externes. Tout le traitement se fait localement dans votre navigateur. Consultez notre politique de confidentialité et notre code source pour une transparence complète.",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "Aucun domaine ou page correspondant trouvé",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "onglets",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "Important :",
+    "description": "Important label"
+  }
+}

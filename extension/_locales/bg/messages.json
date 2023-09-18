@@ -1,0 +1,270 @@
+{
+  "extensionName": {
+    "message": "Затвори Дублиращи Табове",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Автоматично открива и затваря дублиращи табове на браузъра. Спестява памет, намалява безпорядъка. Работи с разширения за спиране на табове.",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "Настройки за Затваряне на Дублиращи Табове",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "Версия 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "Текуща Статистика на Табовете",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "Обнови",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "Общо Табове",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "Уникални URL адреси",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "Дублиращи Табове",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "Спрени Табове",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "Намерени Дублиращи URL адреси",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "Всички Домейни",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "Търси домейни или страници...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "Статистиките се обновяват в реално време докато сърфирате. Ако виждате \"Табове: 1\", но имате много отворени табове, опитайте да обновите тази страница или да презаредите разширението. Това разширение зачита вашата поверителност -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "вижте нашата политика за поверителност",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "Настройки за Автоматизация",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "Автоматично Затваряне на Дублиращи Табове",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "Автоматично затваря дублиращи табове веднага щом бъдат открити, без да изисква ръчна намеса.",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "Как работи:",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "Наблюдава табовете в реално време за дубликати",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "Изчаква 2 секунди след откриване на дубликати преди затваряне (предотвратява бързо задействане)",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "Автоматично запазва активните и закачени табове",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "Работи със спрени табове от разширения като Marvellous Suspender",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "Най-добро за:",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "Потребители, които често отварят дублиращи табове по погрешка",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "Интензивни потребители на табове, които искат автоматично почистване",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "Намаляване на ръчната поддръжка на организацията на табовете",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "Само Текущ Прозорец",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "Ограничава откриването и затварянето на дубликати само до табовете в текущо активния прозорец на браузъра.",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "Когато е включено:",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "Сканира само табовете в прозореца, който използвате в момента",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "Игнорира табовете в други прозорци на браузъра",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "Брояча на значката показва дубликати само в текущия прозорец",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "Ръчното затваряне (Ctrl+Shift+D) засяга само текущия прозорец",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "Потребители, които работят с множество прозорци на браузъра",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "Поддържане на различни проекти/контексти разделени",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "Предотвратяване на случайно затваряне на табове в други прозорци",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "Настройки за Организация",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "Сортирай Табове по URL",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "Тази настройка сортира ВСИЧКИ табове в всеки прозорец по азбучен ред по URL, не само дубликатите. Групира свързаните табове заедно и организира цялата ви лента с табове за по-добра навигация.",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "Сортира ВСИЧКИ табове по азбучен ред по техния URL (не само дубликатите)",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "Групира табовете от същия домейн заедно",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "Поддържа разделението на прозорците (сортира в рамките на всеки прозорец)",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "Запазва позициите на закачените табове",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "Случва се всеки път, когато затваряте дубликати",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "Преди сортирането:",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "След сортирането:",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "Потребители, които предпочитат организирани, групирани табове",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "По-лесно намиране на свързани табове",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "Поддържане на последователна организация на табовете",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "Запази Настройки",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "Настройките са запазени успешно!",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "Грешка при запазване на настройките:",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "Грешка при зареждане на настройките:",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "Бързи Съвети",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "Използвайте Ctrl+Shift+D (или Cmd+Shift+D на Mac) за ръчно затваряне на дубликати",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "Значката на разширението показва броя на откритите дублиращи табове",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "Активните и закачените табове винаги се запазват при затваряне на дубликати",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "Работи с разширения за спиране на табове като Marvellous Suspender",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "Цялата обработка се случва локално - никакви данни не се изпращат към външни сървъри",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "Поверителност и Изходен Код",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "Политика за Поверителност",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "Изходен Код",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "Това разширение е с отворен код и зачита вашата поверителност. Никакви данни не се събират или предават към външни сървъри. Цялата обработка се случва локално във вашия браузър. Вижте нашата политика за поверителност и изходния код за пълна прозрачност.",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "Не са намерени съответстващи домейни или страници",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "табове",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "Важно:",
+    "description": "Important label"
+  }
+}

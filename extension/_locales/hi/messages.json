@@ -1,0 +1,270 @@
+{
+  "extensionName": {
+    "message": "डुप्लिकेट टैब बंद करें",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "स्वचालित रूप से डुप्लिकेट ब्राउज़र टैब का पता लगाएं और बंद करें। मेमोरी बचाता है, अव्यवस्था कम करता है। टैब सस्पेंडर एक्सटेंशन के साथ काम करता है।",
+    "description": "Description of the extension"
+  },
+  "settingsTitle": {
+    "message": "डुप्लिकेट टैब बंद करने की सेटिंग्स",
+    "description": "Title of the settings page"
+  },
+  "version": {
+    "message": "संस्करण 2.7.0",
+    "description": "Version number display"
+  },
+  "currentTabStatistics": {
+    "message": "वर्तमान टैब आंकड़े",
+    "description": "Title for statistics section"
+  },
+  "refresh": {
+    "message": "रीफ्रेश करें",
+    "description": "Refresh button text"
+  },
+  "totalTabs": {
+    "message": "कुल टैब",
+    "description": "Label for total tabs count"
+  },
+  "uniqueUrls": {
+    "message": "अनोखे URL",
+    "description": "Label for unique URLs count"
+  },
+  "duplicateTabs": {
+    "message": "डुप्लिकेट टैब",
+    "description": "Label for duplicate tabs count"
+  },
+  "suspendedTabs": {
+    "message": "निलंबित टैब",
+    "description": "Label for suspended tabs count"
+  },
+  "duplicateUrlsFound": {
+    "message": "डुप्लिकेट URL मिले",
+    "description": "Header for duplicate URLs list"
+  },
+  "allDomains": {
+    "message": "सभी डोमेन",
+    "description": "Header for domains list"
+  },
+  "searchPlaceholder": {
+    "message": "डोमेन या पेज खोजें...",
+    "description": "Placeholder text for search input"
+  },
+  "statisticsNote": {
+    "message": "आंकड़े आपके ब्राउज़ करते समय रियल-टाइम में अपडेट होते हैं। यदि आप \"टैब: 1\" देखते हैं लेकिन आपके पास कई टैब खुले हैं, तो इस पेज को रीफ्रेश करने या एक्सटेंशन को रीलोड करने का प्रयास करें। यह एक्सटेंशन आपकी गोपनीयता का सम्मान करता है -",
+    "description": "Note about statistics updates"
+  },
+  "viewPrivacyPolicy": {
+    "message": "हमारी गोपनीयता नीति देखें",
+    "description": "Link text for privacy policy"
+  },
+  "automationSettings": {
+    "message": "स्वचालन सेटिंग्स",
+    "description": "Title for automation settings section"
+  },
+  "autoCloseTitle": {
+    "message": "डुप्लिकेट टैब स्वचालित रूप से बंद करें",
+    "description": "Title for auto close setting"
+  },
+  "autoCloseDescription": {
+    "message": "डुप्लिकेट टैब का पता लगते ही स्वचालित रूप से बंद करें, मैन्युअल हस्तक्षेप की आवश्यकता नहीं।",
+    "description": "Description for auto close setting"
+  },
+  "howItWorks": {
+    "message": "यह कैसे काम करता है:",
+    "description": "Subheading for how it works section"
+  },
+  "autoCloseWork1": {
+    "message": "डुप्लिकेट के लिए रियल-टाइम में टैब की निगरानी करता है",
+    "description": "Auto close how it works point 1"
+  },
+  "autoCloseWork2": {
+    "message": "डुप्लिकेट का पता लगने के बाद बंद करने से पहले 2 सेकंड प्रतीक्षा करता है (तेज़ ट्रिगरिंग को रोकता है)",
+    "description": "Auto close how it works point 2"
+  },
+  "autoCloseWork3": {
+    "message": "स्वचालित रूप से सक्रिय और पिन किए गए टैब को संरक्षित करता है",
+    "description": "Auto close how it works point 3"
+  },
+  "autoCloseWork4": {
+    "message": "Marvellous Suspender जैसे एक्सटेंशन के निलंबित टैब के साथ काम करता है",
+    "description": "Auto close how it works point 4"
+  },
+  "bestFor": {
+    "message": "सबसे अच्छा है:",
+    "description": "Subheading for best for section"
+  },
+  "autoCloseBest1": {
+    "message": "उपयोगकर्ता जो अक्सर गलती से डुप्लिकेट टैब खोलते हैं",
+    "description": "Auto close best for point 1"
+  },
+  "autoCloseBest2": {
+    "message": "भारी टैब उपयोगकर्ता जो स्वचालित सफाई चाहते हैं",
+    "description": "Auto close best for point 2"
+  },
+  "autoCloseBest3": {
+    "message": "टैब संगठन के मैन्युअल रखरखाव को कम करना",
+    "description": "Auto close best for point 3"
+  },
+  "currentWindowOnlyTitle": {
+    "message": "केवल वर्तमान विंडो",
+    "description": "Title for current window only setting"
+  },
+  "currentWindowOnlyDescription": {
+    "message": "डुप्लिकेट का पता लगाना और बंद करना केवल वर्तमान में सक्रिय ब्राउज़र विंडो के टैब तक सीमित करें।",
+    "description": "Description for current window only setting"
+  },
+  "whenEnabled": {
+    "message": "जब सक्षम हो:",
+    "description": "Subheading for when enabled section"
+  },
+  "currentWindowWork1": {
+    "message": "केवल उस विंडो के टैब को स्कैन करता है जिसका आप वर्तमान में उपयोग कर रहे हैं",
+    "description": "Current window how it works point 1"
+  },
+  "currentWindowWork2": {
+    "message": "अन्य ब्राउज़र विंडो के टैब को नज़रअंदाज़ करता है",
+    "description": "Current window how it works point 2"
+  },
+  "currentWindowWork3": {
+    "message": "बैज काउंटर केवल वर्तमान विंडो में डुप्लिकेट दिखाता है",
+    "description": "Current window how it works point 3"
+  },
+  "currentWindowWork4": {
+    "message": "मैन्युअल बंद करना (Ctrl+Shift+D) केवल वर्तमान विंडो को प्रभावित करता है",
+    "description": "Current window how it works point 4"
+  },
+  "currentWindowBest1": {
+    "message": "उपयोगकर्ता जो कई ब्राउज़र विंडो के साथ काम करते हैं",
+    "description": "Current window best for point 1"
+  },
+  "currentWindowBest2": {
+    "message": "विभिन्न प्रोजेक्ट/संदर्भों को अलग रखना",
+    "description": "Current window best for point 2"
+  },
+  "currentWindowBest3": {
+    "message": "अन्य विंडो में टैब के आकस्मिक बंद होने को रोकना",
+    "description": "Current window best for point 3"
+  },
+  "organizationSettings": {
+    "message": "संगठन सेटिंग्स",
+    "description": "Title for organization settings section"
+  },
+  "sortTabsTitle": {
+    "message": "URL के अनुसार टैब सॉर्ट करें",
+    "description": "Title for sort tabs setting"
+  },
+  "sortTabsDescription": {
+    "message": "यह सेटिंग प्रत्येक विंडो में सभी टैब को URL के अनुसार वर्णानुक्रम में सॉर्ट करती है, केवल डुप्लिकेट नहीं। यह संबंधित टैब को एक साथ समूहित करती है और बेहतर नेवीगेशन के लिए आपकी पूरी टैब बार को व्यवस्थित करती है।",
+    "description": "Description for sort tabs setting"
+  },
+  "sortTabsWork1": {
+    "message": "सभी टैब को उनके URL के अनुसार वर्णानुक्रम में सॉर्ट करता है (केवल डुप्लिकेट नहीं)",
+    "description": "Sort tabs how it works point 1"
+  },
+  "sortTabsWork2": {
+    "message": "समान डोमेन के टैब को एक साथ समूहित करता है",
+    "description": "Sort tabs how it works point 2"
+  },
+  "sortTabsWork3": {
+    "message": "विंडो अलगाव बनाए रखता है (प्रत्येक विंडो के भीतर सॉर्ट करता है)",
+    "description": "Sort tabs how it works point 3"
+  },
+  "sortTabsWork4": {
+    "message": "पिन किए गए टैब की स्थिति संरक्षित करता है",
+    "description": "Sort tabs how it works point 4"
+  },
+  "sortTabsWork5": {
+    "message": "हर बार जब आप डुप्लिकेट बंद करते हैं तो होता है",
+    "description": "Sort tabs how it works point 5"
+  },
+  "beforeSorting": {
+    "message": "सॉर्टिंग से पहले:",
+    "description": "Subheading for before sorting example"
+  },
+  "afterSorting": {
+    "message": "सॉर्टिंग के बाद:",
+    "description": "Subheading for after sorting example"
+  },
+  "sortTabsBest1": {
+    "message": "उपयोगकर्ता जो व्यवस्थित, समूहित टैब पसंद करते हैं",
+    "description": "Sort tabs best for point 1"
+  },
+  "sortTabsBest2": {
+    "message": "संबंधित टैब को अधिक आसानी से खोजना",
+    "description": "Sort tabs best for point 2"
+  },
+  "sortTabsBest3": {
+    "message": "निरंतर टैब संगठन बनाए रखना",
+    "description": "Sort tabs best for point 3"
+  },
+  "saveSettings": {
+    "message": "सेटिंग्स सेव करें",
+    "description": "Save button text"
+  },
+  "settingsSaved": {
+    "message": "सेटिंग्स सफलतापूर्वक सेव हो गईं!",
+    "description": "Success message when settings are saved"
+  },
+  "errorSavingSettings": {
+    "message": "सेटिंग्स सेव करने में त्रुटि:",
+    "description": "Error message when saving settings fails"
+  },
+  "errorLoadingSettings": {
+    "message": "सेटिंग्स लोड करने में त्रुटि:",
+    "description": "Error message when loading settings fails"
+  },
+  "quickTips": {
+    "message": "त्वरित सुझाव",
+    "description": "Title for quick tips section"
+  },
+  "tip1": {
+    "message": "डुप्लिकेट को मैन्युअल रूप से बंद करने के लिए Ctrl+Shift+D (Mac पर Cmd+Shift+D) का उपयोग करें",
+    "description": "Quick tip 1"
+  },
+  "tip2": {
+    "message": "एक्सटेंशन बैज पाए गए डुप्लिकेट टैब की संख्या दिखाता है",
+    "description": "Quick tip 2"
+  },
+  "tip3": {
+    "message": "डुप्लिकेट बंद करते समय सक्रिय और पिन किए गए टैब हमेशा संरक्षित रहते हैं",
+    "description": "Quick tip 3"
+  },
+  "tip4": {
+    "message": "Marvellous Suspender जैसे टैब सस्पेंडर एक्सटेंशन के साथ काम करता है",
+    "description": "Quick tip 4"
+  },
+  "tip5": {
+    "message": "सभी प्रसंस्करण स्थानीय रूप से होता है - कोई डेटा बाहरी सर्वर को नहीं भेजा जाता",
+    "description": "Quick tip 5"
+  },
+  "privacyAndSourceCode": {
+    "message": "गोपनीयता और स्रोत कोड",
+    "description": "Title for privacy and source code section"
+  },
+  "privacyPolicy": {
+    "message": "गोपनीयता नीति",
+    "description": "Privacy policy link text"
+  },
+  "sourceCode": {
+    "message": "स्रोत कोड",
+    "description": "Source code link text"
+  },
+  "footerDescription": {
+    "message": "यह एक्सटेंशन ओपन सोर्स है और आपकी गोपनीयता का सम्मान करता है। कोई डेटा एकत्र या बाहरी सर्वर को प्रेषित नहीं किया जाता। सभी प्रसंस्करण आपके ब्राउज़र में स्थानीय रूप से होता है। पूर्ण पारदर्शिता के लिए हमारी गोपनीयता नीति और स्रोत कोड देखें।",
+    "description": "Footer description text"
+  },
+  "noResultsFound": {
+    "message": "कोई मेल खाने वाले डोमेन या पेज नहीं मिले",
+    "description": "Message when search returns no results"
+  },
+  "tabsCount": {
+    "message": "टैब",
+    "description": "Text for tabs count (e.g., '5 tabs')"
+  },
+  "important": {
+    "message": "महत्वपूर्ण:",
+    "description": "Important label"
+  }
+}
