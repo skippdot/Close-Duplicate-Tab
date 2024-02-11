@@ -11,12 +11,16 @@ function saveOptions(event) {
     ? document.getElementById('currentWindowOnly').checked
     : false;
   const sortTabs = document.getElementById('sortTabs').checked;
+  const badgeColor = document.getElementById('badgeColor')?.value || 'green';
+  const language = document.getElementById('language')?.value || 'auto';
 
   chrome.storage.sync.set(
     {
       autoClose: autoClose,
       currentWindowOnly: currentWindowOnly,
-      sortTabs: sortTabs
+      sortTabs: sortTabs,
+      badgeColor: badgeColor,
+      language: language
     },
     function () {
       if (chrome.runtime.lastError) {
@@ -40,7 +44,8 @@ function restoreOptions() {
     {
       autoClose: false,
       currentWindowOnly: false,
-      sortTabs: false
+      sortTabs: false,
+      badgeColor: 'green'
     },
     function (items) {
       if (chrome.runtime.lastError) {
@@ -57,6 +62,12 @@ function restoreOptions() {
       }
       if (document.getElementById('sortTabs')) {
         document.getElementById('sortTabs').checked = items.sortTabs;
+      }
+      if (document.getElementById('badgeColor')) {
+        document.getElementById('badgeColor').value = items.badgeColor || 'red';
+      }
+      if (document.getElementById('language')) {
+        document.getElementById('language').value = items.language || 'auto';
       }
 
       console.log('Settings loaded:', items);
@@ -106,6 +117,51 @@ function initializeI18n() {
       document.title = message;
     }
   }
+}
+
+// Apply language override for options page (simple demo):
+const langSelect = document.getElementById('language');
+if (langSelect) {
+  langSelect.addEventListener('change', () => {
+    const lang = langSelect.value;
+    if (lang && lang !== 'auto') {
+      document.documentElement.setAttribute('lang', lang);
+      // Dynamically swap texts for options page only
+      try {
+        fetch(`_locales/${lang}/messages.json`)
+          .then(r => r.json())
+          .then(dict => {
+            const getMsg = key => (dict[key] && dict[key].message) || chrome.i18n.getMessage(key);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              const msg = getMsg(key);
+              if (!msg) {
+                return;
+              }
+              if (el.tagName === 'INPUT' && el.type === 'text') {
+                el.placeholder = msg;
+              } else {
+                el.textContent = msg;
+              }
+            });
+            const titleEl = document.querySelector('title[data-i18n]');
+            if (titleEl) {
+              const key = titleEl.getAttribute('data-i18n');
+              const msg = getMsg(key);
+              if (msg) {
+                document.title = msg;
+              }
+            }
+          });
+      } catch (e) {
+        console.warn('Language swap failed', e);
+      }
+    } else {
+      // Back to i18n default
+      document.documentElement.removeAttribute('lang');
+      initializeI18n();
+    }
+  });
 }
 
 // URL extraction utility (same as in close_tabs.js)
@@ -165,8 +221,6 @@ function loadTabStatistics() {
       return;
     }
 
-    console.log(`Found ${tabs.length} total tabs for statistics`);
-
     // Process tabs to get statistics
     const urlCounts = {};
     const domainTabs = {};
@@ -181,11 +235,7 @@ function loadTabStatistics() {
       }
 
       // Count URLs
-      if (realUrl in urlCounts) {
-        urlCounts[realUrl]++;
-      } else {
-        urlCounts[realUrl] = 1;
-      }
+      urlCounts[realUrl] = (urlCounts[realUrl] || 0) + 1;
 
       // Group tabs by domain
       const domain = getDomain(realUrl);
@@ -214,6 +264,33 @@ function loadTabStatistics() {
     updateDomainsListEnhanced(domainTabs);
   });
 }
+
+// Auto-refresh options page on tab state changes (debounced)
+(function setupLiveUpdates() {
+  const debounced = (() => {
+    let t;
+    return () => {
+      clearTimeout(t);
+      t = setTimeout(loadTabStatistics, 300);
+    };
+  })();
+
+  if (chrome.tabs && chrome.tabs.onUpdated) {
+    chrome.tabs.onUpdated.addListener(debounced);
+  }
+  if (chrome.tabs && chrome.tabs.onRemoved) {
+    chrome.tabs.onRemoved.addListener(debounced);
+  }
+  if (chrome.tabs && chrome.tabs.onCreated) {
+    chrome.tabs.onCreated.addListener(debounced);
+  }
+  if (chrome.tabs && chrome.tabs.onReplaced) {
+    chrome.tabs.onReplaced.addListener(debounced);
+  }
+  if (chrome.tabs && chrome.tabs.onActivated) {
+    chrome.tabs.onActivated.addListener(debounced);
+  }
+})();
 
 // Update statistics display
 function updateStatisticsDisplay(totalTabs, uniqueUrls, duplicateTabs, suspendedTabs) {
@@ -382,14 +459,20 @@ function initializeCollapsibleSettings() {
 
     if (content && arrow) {
       header.addEventListener('click', e => {
-        // Don't toggle if clicking on checkbox or label
-        if (e.target.type === 'checkbox' || e.target.tagName === 'LABEL') {
-          return;
+        const isCheckbox = e.target.type === 'checkbox';
+        const isLabelClick = e.target.tagName === 'LABEL' || e.target.closest('label');
+        // Also update popup texts when it opens next time
+        chrome.runtime.sendMessage({ type: 'I18N_UPDATED' });
+        // На клике по тексту label: не трогаем описание, даём браузеру саму переключить чекбокс
+        if (isLabelClick) {
+          return; // default label behavior toggles the checkbox
         }
-
-        const isExpanded = content.classList.contains('expanded');
-        content.classList.toggle('expanded', !isExpanded);
-        arrow.classList.toggle('expanded', !isExpanded);
+        // Любая другая область заголовка (кроме самого чекбокса) — раскрывает описание
+        if (!isCheckbox) {
+          const isExpanded = content.classList.contains('expanded');
+          content.classList.toggle('expanded', !isExpanded);
+          arrow.classList.toggle('expanded', !isExpanded);
+        }
       });
     }
   });
@@ -421,6 +504,68 @@ document.addEventListener('DOMContentLoaded', () => {
 const settingsForm = document.getElementById('settingsForm');
 if (settingsForm) {
   settingsForm.addEventListener('submit', saveOptions);
+
+  // Enable Save button only when there are changes; add asterisk marker
+  (function setupDirtyState() {
+    const saveBtn = document.getElementById('save');
+    const titleH1 = document.querySelector('.right-panel h1');
+    if (!saveBtn || !titleH1) {
+      return;
+    }
+
+    const initial = {};
+
+    function snapshot() {
+      initial.autoClose = !!document.getElementById('autoClose')?.checked;
+      initial.currentWindowOnly = !!document.getElementById('currentWindowOnly')?.checked;
+      initial.sortTabs = !!document.getElementById('sortTabs')?.checked;
+      initial.badgeColor = document.getElementById('badgeColor')?.value || 'red';
+    }
+
+    function isDirty() {
+      return (
+        initial.autoClose !== !!document.getElementById('autoClose')?.checked ||
+        initial.currentWindowOnly !== !!document.getElementById('currentWindowOnly')?.checked ||
+        initial.sortTabs !== !!document.getElementById('sortTabs')?.checked ||
+        initial.badgeColor !== (document.getElementById('badgeColor')?.value || 'red')
+      );
+    }
+
+    function updateUI() {
+      const dirty = isDirty();
+      saveBtn.disabled = !dirty;
+      titleH1.textContent = dirty
+        ? 'Close Duplicate Tabs Settings *'
+        : 'Close Duplicate Tabs Settings';
+    }
+
+    // After restore, take snapshot and disable Save
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        snapshot();
+        updateUI();
+      }, 0);
+    });
+
+    // Watch inputs for changes
+    ['autoClose', 'currentWindowOnly', 'sortTabs', 'badgeColor'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('change', updateUI);
+        el.addEventListener('input', updateUI);
+      }
+    });
+
+    // After successful save, refresh snapshot and disable
+    const originalShowStatus = window.showStatus;
+    window.showStatus = function (messageKey, type = 'success', fallbackMessage = '') {
+      originalShowStatus.call(window, messageKey, type, fallbackMessage);
+      if (type === 'success') {
+        snapshot();
+        updateUI();
+      }
+    };
+  })();
 }
 
 // Fallback for direct button click
