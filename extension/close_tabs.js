@@ -1,11 +1,76 @@
 // State management
+function mapBadgeColor(name) {
+  switch ((name || 'red').toLowerCase()) {
+    case 'red':
+      return [217, 48, 37, 255];
+    case 'orange':
+      return [255, 152, 0, 255];
+    case 'yellow':
+      return [251, 188, 5, 255];
+    case 'green':
+      return [52, 168, 83, 255];
+    case 'blue':
+      return [66, 133, 244, 255];
+    case 'purple':
+      return [156, 39, 176, 255];
+    case 'gray':
+      return [128, 128, 128, 255];
+    default:
+      return [217, 48, 37, 255];
+  }
+}
+// i18n in-memory cache for global override
+let _i18nLang = null;
+let _i18nDict = null;
+function i18nGet(key, fallback = '') {
+  try {
+    if (_i18nLang && _i18nLang !== 'auto' && _i18nDict && _i18nDict[_i18nLang]) {
+      return _i18nDict[_i18nLang][key]?.message || fallback || chrome.i18n.getMessage(key) || '';
+    }
+    return chrome.i18n.getMessage(key) || fallback || '';
+  } catch {
+    return fallback || '';
+  }
+}
+function preloadI18n(lang, cb) {
+  _i18nLang = lang || 'auto';
+  if (!lang || lang === 'auto') {
+    _i18nDict = null;
+    if (cb) {
+      cb();
+    }
+    return;
+  }
+  fetch(`/_locales/${lang}/messages.json`)
+    .then(r => r.json())
+    .then(json => {
+      _i18nDict = _i18nDict || {};
+      _i18nDict[lang] = json;
+      if (cb) {
+        cb();
+      }
+    })
+    .catch(() => {
+      if (cb) {
+        cb();
+      }
+    });
+}
+// Load language on startup and when changed
+chrome.storage.sync.get({ language: 'auto' }, ({ language }) => preloadI18n(language));
+chrome.storage.onChanged.addListener(changes => {
+  if (changes.language) {
+    preloadI18n(changes.language.newValue);
+  }
+});
+
 let stateChanged = true;
 let tabUrl = {};
-let urlList = {};
-let domains = [];
-let dupUrls = [];
+// removed unused: urlList, domains, dupUrls
 
 // Settings
+let badgeColorSetting = 'green';
+
 let autoClose = false;
 let currentWindowOnly = false;
 let sortTabs = false;
@@ -56,7 +121,8 @@ function loadConfigs(callback) {
     {
       autoClose: false,
       currentWindowOnly: false,
-      sortTabs: false
+      sortTabs: false,
+      badgeColor: 'green'
     },
     function (items) {
       if (chrome.runtime.lastError) {
@@ -67,8 +133,14 @@ function loadConfigs(callback) {
       autoClose = items.autoClose;
       currentWindowOnly = items.currentWindowOnly;
       sortTabs = items.sortTabs;
+      badgeColorSetting = items.badgeColor || 'red';
 
-      console.log('Loaded configs:', { autoClose, currentWindowOnly, sortTabs });
+      console.log('Loaded configs:', {
+        autoClose,
+        currentWindowOnly,
+        sortTabs,
+        badgeColor: badgeColorSetting
+      });
 
       if (callback) {
         callback();
@@ -194,24 +266,18 @@ function setIcon(type) {
   });
 }
 
-function setBadge(msg) {
-  chrome.action.setBadgeBackgroundColor(
-    {
-      color: [0, 0, 0, 0]
-    },
-    () => {
-      if (chrome.runtime.lastError) {
-        console.error('Error setting badge color:', chrome.runtime.lastError);
-        return;
-      }
-
-      chrome.action.setBadgeText({ text: msg }, () => {
-        if (chrome.runtime.lastError) {
-          console.error('Error setting badge text:', chrome.runtime.lastError);
-        }
-      });
+function setBadgeTextAndColor(text, color) {
+  chrome.action.setBadgeBackgroundColor({ color }, () => {
+    if (chrome.runtime.lastError) {
+      console.error('Error setting badge color:', chrome.runtime.lastError);
+      return;
     }
-  );
+    chrome.action.setBadgeText({ text }, () => {
+      if (chrome.runtime.lastError) {
+        console.error('Error setting badge text:', chrome.runtime.lastError);
+      }
+    });
+  });
 }
 
 function setTitle(msg) {
@@ -222,49 +288,72 @@ function setTitle(msg) {
   });
 }
 
-function updateUrlList() {
-  urlList = {};
-
-  for (const tabId in tabUrl) {
-    const url = tabUrl[tabId].url;
-
-    if (url in urlList) {
-      urlList[url].count += 1;
-    } else {
-      urlList[url] = { count: 1, title: tabUrl[tabId].title };
-    }
-  }
-}
-
+// Helpers used by both badge and popup
 function getDomain(url) {
   return url.replace('http://', '').replace('https://', '').split(/[/?#]/)[0];
 }
 
-function updateDomains() {
-  domains = [];
-  const domainsList = {};
-
-  for (const url in urlList) {
-    const domain = getDomain(url);
-    if (domain in domainsList) {
-      domainsList[domain] += 1;
-    } else {
-      domainsList[domain] = 1;
-    }
-  }
-
-  for (const domain in domainsList) {
-    domains.push({ domain: domain, count: domainsList[domain] });
-  }
+function isCloseableUrl(url) {
+  // Now we close duplicates for all normal URLs including chrome://newtab/ and about:blank
+  // Keep a guard against empty/undefined values
+  return Boolean(url);
 }
 
-function getTopDomains() {
-  const topDomains = domains
-    .sort((a, b) => b.count - a.count) // Fixed: sort descending directly
-    .filter(a => a.count >= 5)
-    .map(a => `${a.count} : ${a.domain}`);
+function computeCountsFromTabs(tabs) {
+  const urlCounts = {};
+  const titles = {};
+  let totalTabs = 0;
 
-  return topDomains.length > 0 ? `## Top Domains\n${topDomains.join('\n')}\n` : '';
+  tabs.forEach(t => {
+    const real = extractRealUrl(t.url || '');
+    urlCounts[real] = (urlCounts[real] || 0) + 1;
+    titles[real] = t.title || titles[real] || real;
+    totalTabs += 1;
+  });
+
+  const uniqueUrls = Object.keys(urlCounts).length;
+  const duplicates = totalTabs - uniqueUrls;
+
+  // Closeable duplicates exclude special URLs (e.g., New Tab)
+  let duplicatesCloseable = 0;
+  Object.entries(urlCounts).forEach(([url, count]) => {
+    const dupsHere = Math.max(0, count - 1);
+    if (isCloseableUrl(url)) {
+      duplicatesCloseable += dupsHere;
+    }
+  });
+
+  const duplicatesList = Object.entries(urlCounts)
+    .filter(([, c]) => c > 1)
+    .sort((a, b) => b[1] - a[1])
+    .map(([url, count]) => ({ url, count, title: titles[url] }));
+
+  // Top domains by total tab occurrences
+  const domainCounts = {};
+  Object.keys(urlCounts).forEach(u => {
+    const d = getDomain(u);
+    domainCounts[d] = (domainCounts[d] || 0) + urlCounts[u];
+  });
+  const topDomains = Object.entries(domainCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 15)
+    .map(([domain, count]) => ({ domain, count }));
+
+  return {
+    totalTabs,
+    uniqueUrls,
+    duplicates,
+    duplicatesCloseable,
+    urlCounts,
+    titles,
+    duplicatesList,
+    topDomains
+  };
+}
+
+function getTopDomainsTitle(topDomains) {
+  const list = topDomains.filter(a => a.count >= 5).map(a => `${a.count} : ${a.domain}`);
+  return list.length > 0 ? `## Top Domains\n${list.join('\n')}\n` : '';
 }
 
 function refreshBadge() {
@@ -272,43 +361,58 @@ function refreshBadge() {
     return;
   }
 
-  updateUrlList();
-  updateDomains();
+  // Query tabs fresh to avoid cache divergence with popup
+  queryTabsWithFilter(tabs => {
+    const counts = computeCountsFromTabs(tabs);
 
-  let tabCount = 0;
-  let urlCount = 0;
-  dupUrls = [];
+    const tabsLabel = i18nGet('totalTabs', 'Tabs');
+    const dupsLabel = i18nGet('duplicateTabs', 'Duplicates');
+    let title = `${tabsLabel}: ${counts.totalTabs} || ${dupsLabel}: ${counts.duplicates}\n`;
+    title += getTopDomainsTitle(counts.topDomains);
 
-  for (const url in urlList) {
-    if (urlList[url] === undefined) {
-      continue;
+    if (counts.duplicates > 0) {
+      setIcon('active');
+      setBadgeTextAndColor(
+        counts.duplicates.toString(),
+        mapBadgeColor ? mapBadgeColor(badgeColorSetting) : [217, 48, 37, 255]
+      );
+
+      const dupListForTitle = Object.entries(counts.urlCounts)
+        .filter(([, v]) => v && v > 1)
+        .map(([url, c]) => {
+          const safeTitle = counts.titles[url] ? counts.titles[url].slice(0, 50) : url.slice(0, 50);
+          return `${c} : ${safeTitle}`;
+        })
+        .sort()
+        .reverse();
+      setTitle(
+        title +
+          '## ' +
+          i18nGet('duplicateUrlsFound', 'Duplicate sites') +
+          '\n' +
+          dupListForTitle.join('\n')
+      );
+    } else {
+      setIcon('inactive');
+      setBadgeTextAndColor(counts.totalTabs.toString(), [128, 128, 128, 255]);
+      setTitle(title);
     }
 
-    const count = urlList[url].count;
-    tabCount += count;
-    urlCount++;
+    stateChanged = false;
+  });
+}
 
-    if (count > 1) {
-      dupUrls.push(`${count} : ${urlList[url].title.substr(0, 50)}`);
+// Expose minimal test hooks without breaking MV3 service worker
+if (typeof globalThis !== 'undefined') {
+  globalThis.__cdt_test = Object.assign(globalThis.__cdt_test || {}, {
+    computeCountsFromTabs,
+    isCloseableUrl,
+    getDomain,
+    refreshBadgeForTest: () => {
+      stateChanged = true;
+      refreshBadge();
     }
-  }
-
-  const diff = tabCount - urlCount;
-
-  let title = `Tabs: ${tabCount} || Duplicates: ${diff}\n`;
-  title += getTopDomains();
-
-  if (diff > 0) {
-    setIcon('active');
-    setBadge(diff.toString());
-    setTitle(title + '## Duplicate sites\n' + dupUrls.sort().reverse().join('\n'));
-  } else {
-    setIcon('inactive');
-    setBadge('');
-    setTitle(title);
-  }
-
-  stateChanged = false;
+  });
 }
 
 chrome.runtime.onInstalled.addListener(details => {
@@ -346,6 +450,19 @@ function handleAutoClose() {
   }, 2000); // Wait 2 seconds after last tab change
 }
 
+chrome.tabs.onCreated.addListener(tab => {
+  const realUrl = extractRealUrl(tab.url || '');
+  tabUrl[tab.id] = {
+    url: realUrl,
+    title: tab.title || '',
+    originalUrl: tab.url || '',
+    isSuspended: Boolean(tab.url) && realUrl !== tab.url
+  };
+  stateChanged = true;
+  refreshBadge();
+  handleAutoClose();
+});
+
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.url || changeInfo.title) {
     const realUrl = extractRealUrl(tab.url);
@@ -368,13 +485,14 @@ chrome.tabs.onRemoved.addListener((tabId, _removeInfo) => {
   refreshBadge();
 });
 
-chrome.tabs.onReplaced.addListener((addedTabId, removedTabId) => {
+chrome.tabs.onReplaced.addListener((_addedTabId, removedTabId) => {
   delete tabUrl[removedTabId];
   stateChanged = true;
   refreshBadge();
 });
 
 chrome.tabs.onActivated.addListener(_activeInfo => {
+  stateChanged = true;
   refreshBadge();
 });
 
@@ -385,6 +503,7 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   }
 });
 
+// Note: if a default_popup is set, onClicked won't fire. We keep this for users without popup.
 chrome.action.onClicked.addListener(() => {
   console.log('Extension clicked - Settings:', { autoClose, currentWindowOnly, sortTabs });
 
@@ -395,6 +514,37 @@ chrome.action.onClicked.addListener(() => {
   setTimeout(() => {
     closeDuplicateTabs();
   }, 500);
+});
+
+// Listen for messages from popup/options
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  if (message && message.type === 'CLOSE_DUPLICATES') {
+    closeDuplicateTabs();
+    sendResponse({ ok: true });
+    return true;
+  }
+  if (message && message.type === 'SET_AUTO_CLOSE') {
+    chrome.storage.sync.set({ autoClose: Boolean(message.value) }, () => {
+      sendResponse({ ok: !chrome.runtime.lastError, error: chrome.runtime.lastError?.message });
+    });
+    return true;
+  }
+  if (message && message.type === 'GET_COUNTS') {
+    queryTabsWithFilter(tabs => {
+      const counts = computeCountsFromTabs(tabs);
+      sendResponse({
+        ok: true,
+        totalTabs: counts.totalTabs,
+        duplicates: counts.duplicates,
+        duplicatesCloseable: counts.duplicatesCloseable,
+        uniqueUrls: counts.uniqueUrls,
+        topDomains: counts.topDomains,
+        duplicatesList: counts.duplicatesList,
+        settings: { autoClose, currentWindowOnly, sortTabs }
+      });
+    });
+    return true; // async response
+  }
 });
 
 function closeDuplicateTabs(isAutoMode = false) {
@@ -408,41 +558,46 @@ function closeDuplicateTabs(isAutoMode = false) {
       });
     }
 
-    const urls = {};
+    // Group tabs by their real URL
+    const groups = {};
+    tabs.forEach(t => {
+      const real = extractRealUrl(t.url);
+      (groups[real] = groups[real] || []).push(t);
+    });
+
+    // Helper to select which tab to keep within a group deterministically
+    const pickTabToKeep = group => {
+      // 1) Prefer active tab among the group
+      const actives = group.filter(t => t.active);
+      if (actives.length === 1) {
+        return actives[0];
+      }
+      if (actives.length > 1) {
+        // If multiple active (different windows), pick the one with the smallest windowId then lowest id
+        return actives.sort((a, b) => a.windowId - b.windowId || a.id - b.id)[0];
+      }
+      // 2) Then prefer pinned
+      const pinneds = group.filter(t => t.pinned);
+      if (pinneds.length > 0) {
+        return pinneds.sort((a, b) => a.windowId - b.windowId || a.id - b.id)[0];
+      }
+      // 3) Fallback: the earliest by windowId then id for stability
+      return group.sort((a, b) => a.windowId - b.windowId || a.id - b.id)[0];
+    };
+
     const tabsToClose = [];
-    let newIndex = 0;
-    let winId = -1;
-
-    for (let i = 0; i < tabs.length; i++) {
-      const currentTab = tabs[i];
-      const realUrl = extractRealUrl(currentTab.url);
-
-      if (sortTabs && winId !== currentTab.windowId) {
-        winId = currentTab.windowId;
-        newIndex = 0;
+    Object.keys(groups).forEach(url => {
+      const group = groups[url];
+      if (group.length <= 1) {
+        return;
       }
-
-      if (realUrl in urls) {
-        const existingTab = urls[realUrl];
-
-        // Prefer active and pinned tabs
-        if (!existingTab.pinned && (currentTab.pinned || currentTab.active)) {
-          tabsToClose.push(existingTab.id);
-          urls[realUrl] = currentTab;
-        } else {
-          tabsToClose.push(currentTab.id);
+      const keep = pickTabToKeep(group);
+      group.forEach(t => {
+        if (t.id !== keep.id) {
+          tabsToClose.push(t.id);
         }
-      } else {
-        urls[realUrl] = currentTab;
-        if (sortTabs) {
-          chrome.tabs.move(currentTab.id, { index: newIndex++ }, () => {
-            if (chrome.runtime.lastError) {
-              console.error('Error moving tab:', chrome.runtime.lastError);
-            }
-          });
-        }
-      }
-    }
+      });
+    });
 
     // Close duplicate tabs
     if (tabsToClose.length > 0) {
@@ -459,5 +614,14 @@ function closeDuplicateTabs(isAutoMode = false) {
 
     stateChanged = true;
     setTimeout(refreshBadge, 500); // Refresh after tabs are closed
+  });
+}
+
+// Keyboard shortcut to close duplicates
+if (chrome.commands && chrome.commands.onCommand && chrome.commands.onCommand.addListener) {
+  chrome.commands.onCommand.addListener(command => {
+    if (command === 'close-duplicates') {
+      closeDuplicateTabs();
+    }
   });
 }

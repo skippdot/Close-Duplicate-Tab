@@ -12,7 +12,7 @@
     "description": "Title of the settings page"
   },
   "version": {
-    "message": "Version 2.7.0",
+    "message": "Version 2.7.2",
     "description": "Version number display"
   },
   "currentTabStatistics": {
@@ -132,7 +132,7 @@
     "description": "Current window how it works point 3"
   },
   "currentWindowWork4": {
-    "message": "Manual closing (Ctrl+Shift+D) affects current window only",
+    "message": "Manual closing (Alt+Shift+D) affects current window only",
     "description": "Current window how it works point 4"
   },
   "currentWindowBest1": {
@@ -220,7 +220,7 @@
     "description": "Title for quick tips section"
   },
   "tip1": {
-    "message": "Use Ctrl+Shift+D (or Cmd+Shift+D on Mac) to manually close duplicates",
+    "message": "Use Alt+Shift+D (or Option+Shift+D on Mac) to manually close duplicates",
     "description": "Quick tip 1"
   },
   "tip2": {
@@ -274,5 +274,20 @@
   "chromeWebStore": {
     "message": "Chrome Web Store",
     "description": "Chrome Web Store link text"
+  },
+  "closeDups": {
+    "message": "Close dups"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "closeNow": {
+    "message": "Close duplicate tabs now"
+  },
+  "openSettings": {
+    "message": "Open settings"
+  },
+  "statsLive": {
+    "message": "Counts update live"
   }
 }

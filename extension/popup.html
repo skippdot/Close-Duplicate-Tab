@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title data-i18n="extensionName">Close Duplicate Tabs</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      .container {
+        width: 340px;
+        padding: 12px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      .counts {
+        font-size: 14px;
+        color: #444;
+      }
+      .counts .total {
+        color: #888;
+      }
+      .counts .dups {
+        color: #d93025;
+        font-weight: 600;
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+        margin: 8px 0;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 6px 0;
+      }
+      .toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #444;
+      }
+      button {
+        padding: 6px 10px;
+        font-size: 13px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        background: #f8f9fa;
+        cursor: pointer;
+      }
+      button.primary {
+        background: #4285f4;
+        color: #fff;
+        border-color: #3367d6;
+      }
+      button[disabled] {
+        background: #e9ecef;
+        color: #9aa0a6;
+        border-color: #dadce0;
+        cursor: not-allowed;
+      }
+      .section-title {
+        font-size: 12px;
+        color: #666;
+        margin-top: 8px;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+      }
+      .list {
+        max-height: 220px;
+        overflow: auto;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        padding: 8px;
+      }
+      .domain,
+      .dup {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #555;
+        padding: 2px 0;
+      }
+      .dup .count {
+        color: #d93025;
+        font-weight: 600;
+      }
+      .domain .count {
+        color: #1976d2;
+        font-weight: 600;
+      }
+      .footer {
+        font-size: 11px;
+        color: #999;
+        text-align: right;
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="counts" id="counts">
+          <span class="total">0</span> <span class="dups">(0)</span>
+        </div>
+        <div class="actions">
+          <button
+            id="closeDupsBtn"
+            class="primary"
+            data-i18n-title="closeNow"
+            title="Close duplicate tabs now"
+            data-i18n="closeDups"
+          >
+            Close dups
+          </button>
+          <button
+            id="openSettingsBtn"
+            data-i18n-title="openSettings"
+            title="Open settings"
+            data-i18n="settings"
+          >
+            Settings
+          </button>
+        </div>
+      </div>
+
+      <div id="dupSection">
+        <div class="section-title" data-i18n="duplicateTabs">Duplicates</div>
+        <div class="list" id="dupList"></div>
+      </div>
+
+      <div class="section-title" data-i18n="allDomains">Top Domains</div>
+      <div class="list" id="domains"></div>
+      <div class="footer" data-i18n="statsLive">Counts update live</div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

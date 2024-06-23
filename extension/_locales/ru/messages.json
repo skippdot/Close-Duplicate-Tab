@@ -12,7 +12,7 @@
     "description": "Title of the settings page"
   },
   "version": {
-    "message": "Версия 2.7.0",
+    "message": "Версия 2.7.2",
     "description": "Version number display"
   },
   "currentTabStatistics": {
@@ -132,7 +132,7 @@
     "description": "Current window how it works point 3"
   },
   "currentWindowWork4": {
-    "message": "Ручное закрытие (Ctrl+Shift+D) влияет только на текущее окно",
+    "message": "Ручное закрытие (Alt+Shift+D) влияет только на текущее окно",
     "description": "Current window how it works point 4"
   },
   "currentWindowBest1": {
@@ -220,7 +220,7 @@
     "description": "Title for quick tips section"
   },
   "tip1": {
-    "message": "Используйте Ctrl+Shift+D (или Cmd+Shift+D на Mac) для ручного закрытия дубликатов",
+    "message": "Используйте Alt+Shift+D (или Option+Shift+D на Mac) для ручного закрытия дубликатов",
     "description": "Quick tip 1"
   },
   "tip2": {
@@ -266,5 +266,20 @@
   "important": {
     "message": "Важно:",
     "description": "Important label"
+  },
+  "closeDups": {
+    "message": "Закрыть дубли"
+  },
+  "settings": {
+    "message": "Настройки"
+  },
+  "closeNow": {
+    "message": "Закрыть дубликаты сейчас"
+  },
+  "openSettings": {
+    "message": "Открыть настройки"
+  },
+  "statsLive": {
+    "message": "Счётчики обновляются в реальном времени"
   }
 }
