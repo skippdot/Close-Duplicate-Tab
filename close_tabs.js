@@ -42,22 +42,22 @@ function init() {
 function setIcon(type) {
 
 	if (type == 'inactive')
-		chrome.browserAction.setIcon({
+		chrome.action.setIcon({
 			path: "icon_128_gs.png"
 		});
 	else
-		chrome.browserAction.setIcon({
+		chrome.action.setIcon({
 			path: "icon_128.png"
 		});
 }
 
 function setBadge(msg) {
 
-	chrome.browserAction.setBadgeBackgroundColor({
+	chrome.action.setBadgeBackgroundColor({
 		color: [0, 0, 0, 0]
 	});
 
-	chrome.browserAction.setBadgeText({
+	chrome.action.setBadgeText({
 		text: msg
 	});
 
@@ -65,7 +65,7 @@ function setBadge(msg) {
 
 function setTitle(msg) {
 
-	chrome.browserAction.setTitle({
+	chrome.action.setTitle({
 		title: msg
 	})
 }
@@ -167,14 +167,16 @@ chrome.runtime.onInstalled.addListener(function (details) {
 
 	init();
 
-	setInterval(function () { refreshBadge(); }, 500);
+	// For service workers, we'll refresh badge on events instead of intervals
+	refreshBadge();
 });
 
 chrome.runtime.onStartup.addListener(function (details) {
 
 	init();
 
-	setInterval(function () { refreshBadge(); }, 500);
+	// For service workers, we'll refresh badge on events instead of intervals
+	refreshBadge();
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
@@ -182,6 +184,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 	tabUrl[tabId] = { url: tab.url, title: tab.title };
 
 	stateChanged = true;
+	refreshBadge();
 });
 
 chrome.tabs.onRemoved.addListener(function (tabId, removeInfo) {
@@ -189,6 +192,7 @@ chrome.tabs.onRemoved.addListener(function (tabId, removeInfo) {
 	delete tabUrl[tabId];
 
 	stateChanged = true;
+	refreshBadge();
 });
 
 chrome.tabs.onReplaced.addListener(function (addedTabId, removedTabId) {
@@ -196,6 +200,11 @@ chrome.tabs.onReplaced.addListener(function (addedTabId, removedTabId) {
 	delete tabUrl[removedTabId];
 
 	stateChanged = true;
+	refreshBadge();
+});
+
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+	refreshBadge();
 });
 
 chrome.storage.onChanged.addListener(function (changes, areaName) {
@@ -204,10 +213,11 @@ chrome.storage.onChanged.addListener(function (changes, areaName) {
 		init();
 
 		stateChanged = true;
+		refreshBadge();
 	}
 });
 
-chrome.browserAction.onClicked.addListener(function () {
+chrome.action.onClicked.addListener(function () {
 
 	console.log('onClick: ', autoClose, currentWindowOnly, sortTabs);
 
@@ -255,5 +265,6 @@ chrome.browserAction.onClicked.addListener(function () {
 		}
 
 		stateChanged = true;
+		refreshBadge();
 	});
 });
