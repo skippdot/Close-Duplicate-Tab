@@ -138,7 +138,7 @@ function loadTabStatistics() {
 
     // Process tabs to get statistics
     const urlCounts = {};
-    const domains = {};
+    const domainTabs = {};
     let suspendedCount = 0;
 
     tabs.forEach(tab => {
@@ -156,13 +156,20 @@ function loadTabStatistics() {
         urlCounts[realUrl] = 1;
       }
 
-      // Count domains
+      // Group tabs by domain
       const domain = getDomain(realUrl);
-      if (domain in domains) {
-        domains[domain]++;
-      } else {
-        domains[domain] = 1;
+      if (!(domain in domainTabs)) {
+        domainTabs[domain] = [];
       }
+      domainTabs[domain].push({
+        id: tab.id,
+        title: tab.title,
+        url: realUrl,
+        originalUrl: tab.url,
+        isSuspended: isSuspended,
+        isActive: tab.active,
+        isPinned: tab.pinned
+      });
     });
 
     // Calculate statistics
@@ -173,7 +180,7 @@ function loadTabStatistics() {
     // Update UI
     updateStatisticsDisplay(totalTabs, uniqueUrls, duplicateTabs, suspendedCount);
     updateDuplicatesList(urlCounts);
-    updateDomainsList(domains);
+    updateDomainsListEnhanced(domainTabs);
   });
 }
 
@@ -214,39 +221,168 @@ function updateDuplicatesList(urlCounts) {
   });
 }
 
-// Update domains list
-function updateDomainsList(domains) {
+// Update enhanced domains list with search and tab switching
+function updateDomainsListEnhanced(domainTabs) {
   const domainsList = document.getElementById('domainsList');
-  const domainsContent = document.getElementById('domainsContent');
 
-  // Find domains with 5+ tabs
-  const topDomains = Object.entries(domains)
-    .filter(([_domain, count]) => count >= 5)
-    .sort((a, b) => b[1] - a[1]); // Sort by count descending
-
-  if (topDomains.length === 0) {
+  if (Object.keys(domainTabs).length === 0) {
     domainsList.style.display = 'none';
     return;
   }
 
   domainsList.style.display = 'block';
+
+  // Store all domain data for search functionality
+  window.allDomainTabs = domainTabs;
+
+  renderDomainsList(domainTabs);
+}
+
+// Render domains list
+function renderDomainsList(domainTabs, searchTerm = '') {
+  const domainsContent = document.getElementById('domainsContent');
   domainsContent.innerHTML = '';
 
-  topDomains.forEach(([domain, count]) => {
-    const item = document.createElement('div');
-    item.className = 'domain-item';
-    item.innerHTML = `
-      <span>${domain}</span>
-      <span class="domain-count">${count} tabs</span>
-    `;
-    domainsContent.appendChild(item);
+  // Filter domains based on search term
+  const filteredDomains = Object.entries(domainTabs).filter(([domain, tabs]) => {
+    if (!searchTerm) {
+      return true;
+    }
+
+    const searchLower = searchTerm.toLowerCase();
+    // Search in domain name
+    if (domain.toLowerCase().includes(searchLower)) {
+      return true;
+    }
+
+    // Search in tab titles and URLs
+    return tabs.some(
+      tab =>
+        tab.title.toLowerCase().includes(searchLower) || tab.url.toLowerCase().includes(searchLower)
+    );
   });
+
+  if (filteredDomains.length === 0) {
+    domainsContent.innerHTML = '<div class="no-results">No matching domains or pages found</div>';
+    return;
+  }
+
+  // Sort by tab count descending
+  filteredDomains.sort((a, b) => b[1].length - a[1].length);
+
+  filteredDomains.forEach(([domain, tabs]) => {
+    const domainGroup = document.createElement('div');
+    domainGroup.className = 'domain-group';
+
+    const domainHeader = document.createElement('div');
+    domainHeader.className = 'domain-header';
+    domainHeader.innerHTML = `
+      <span>${domain}</span>
+      <span class="domain-count">${tabs.length} tabs</span>
+    `;
+
+    const domainTabsContainer = document.createElement('div');
+    domainTabsContainer.className = 'domain-tabs';
+
+    tabs.forEach(tab => {
+      const tabItem = document.createElement('div');
+      tabItem.className = 'tab-item';
+      tabItem.dataset.tabId = tab.id;
+
+      const statusIcons = [];
+      if (tab.isActive) {
+        statusIcons.push('🔵');
+      }
+      if (tab.isPinned) {
+        statusIcons.push('📌');
+      }
+      if (tab.isSuspended) {
+        statusIcons.push('💤');
+      }
+
+      tabItem.innerHTML = `
+        <div class="tab-title">${statusIcons.join(' ')} ${tab.title}</div>
+        <div class="tab-url">${tab.url}</div>
+      `;
+
+      tabItem.addEventListener('click', () => switchToTab(tab.id));
+      domainTabsContainer.appendChild(tabItem);
+    });
+
+    domainHeader.addEventListener('click', () => {
+      const isExpanded = domainTabsContainer.classList.contains('expanded');
+      domainTabsContainer.classList.toggle('expanded', !isExpanded);
+    });
+
+    domainGroup.appendChild(domainHeader);
+    domainGroup.appendChild(domainTabsContainer);
+    domainsContent.appendChild(domainGroup);
+  });
+}
+
+// Switch to a specific tab
+function switchToTab(tabId) {
+  chrome.tabs.update(tabId, { active: true }, tab => {
+    if (chrome.runtime.lastError) {
+      console.error('Error switching to tab:', chrome.runtime.lastError);
+      showStatus('Error switching to tab: ' + chrome.runtime.lastError.message, 'error');
+      return;
+    }
+
+    // Also focus the window containing the tab
+    chrome.windows.update(tab.windowId, { focused: true }, () => {
+      if (chrome.runtime.lastError) {
+        console.error('Error focusing window:', chrome.runtime.lastError);
+      }
+    });
+
+    console.log('Switched to tab:', tab.title);
+  });
+}
+
+// Initialize collapsible settings
+function initializeCollapsibleSettings() {
+  const settingHeaders = document.querySelectorAll('.setting-header[data-setting]');
+
+  settingHeaders.forEach(header => {
+    const settingName = header.dataset.setting;
+    const content = document.getElementById(settingName + 'Content');
+    const arrow = header.querySelector('.collapse-arrow');
+
+    if (content && arrow) {
+      header.addEventListener('click', e => {
+        // Don't toggle if clicking on checkbox or label
+        if (e.target.type === 'checkbox' || e.target.tagName === 'LABEL') {
+          return;
+        }
+
+        const isExpanded = content.classList.contains('expanded');
+        content.classList.toggle('expanded', !isExpanded);
+        arrow.classList.toggle('expanded', !isExpanded);
+      });
+    }
+  });
+}
+
+// Initialize search functionality
+function initializeSearch() {
+  const searchInput = document.getElementById('domainSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', e => {
+      const searchTerm = e.target.value;
+      if (window.allDomainTabs) {
+        renderDomainsList(window.allDomainTabs, searchTerm);
+      }
+    });
+  }
 }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   restoreOptions();
   loadTabStatistics();
+  initializeCollapsibleSettings();
+  initializeSearch();
 });
 
 // Handle form submission
