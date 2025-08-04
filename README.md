@@ -102,7 +102,25 @@ No build process required - this is a vanilla JavaScript extension.
 5. **Test Closing**: Click the extension icon to close duplicates
 6. **Check Preservation**: Verify that active/pinned tabs are preserved
 
-For detailed testing instructions, see [TESTING_GUIDE.md](TESTING_GUIDE.md).
+For detailed testing instructions, see [TESTING_GUIDE.md](docs/TESTING_GUIDE.md).
+
+### Available Scripts
+```bash
+# Testing
+npm test              # Run all tests
+npm run test:watch    # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
+
+# Code Quality
+npm run lint          # Check for linting errors
+npm run lint:fix      # Fix auto-fixable linting errors
+npm run format        # Format all files with Prettier
+npm run format:check  # Check if files are properly formatted
+npm run quality       # Run all quality checks (lint + format + tests)
+
+# Development
+npm run test:url      # Run standalone URL extraction test
+```
 
 ## 👨‍💻 For Developers
 
@@ -127,9 +145,16 @@ npm test
 
 ### Development Workflow
 1. **Make Changes**: Edit files in the `extension/` folder
-2. **Test Changes**: Run `npm test` for automated tests
-3. **Manual Testing**: Reload extension in Chrome and test manually
-4. **Documentation**: Update relevant docs in `docs/` folder
+2. **Code Quality**: Run `npm run quality` (linting + formatting + tests)
+3. **Fix Issues**: Use `npm run lint:fix` and `npm run format` as needed
+4. **Manual Testing**: Reload extension in Chrome and test manually
+5. **Documentation**: Update relevant docs in `docs/` folder
+
+### Code Quality Tools
+- **ESLint**: Static code analysis with Chrome extension specific rules
+- **Prettier**: Automatic code formatting for consistency
+- **Jest**: Comprehensive testing framework with 24 tests
+- **Quality Check**: `npm run quality` runs all checks together
 
 ### Project Structure
 - `extension/` - Chrome extension files (production ready)
@@ -149,11 +174,17 @@ We welcome contributions! Here's how to get started:
 7. **Open** a Pull Request
 
 ### Contribution Guidelines
-- All tests must pass (`npm test`)
-- Follow existing code style and patterns
+- All quality checks must pass (`npm run quality`)
+- Follow existing code style and patterns (enforced by ESLint/Prettier)
 - Update documentation for new features
 - Add tests for new functionality
 - Keep commits focused and descriptive
+
+### Documentation
+- **[Installation Guide](docs/INSTALLATION_GUIDE.md)** - Step-by-step installation instructions
+- **[Testing Guide](docs/TESTING_GUIDE.md)** - Manual and automated testing procedures
+- **[Linting Guide](docs/LINTING_GUIDE.md)** - Code quality and formatting standards
+- **[Implementation Status](docs/IMPLEMENTATION_STATUS.md)** - Development tracking and progress
 
 ## 📁 Folder Structure
 

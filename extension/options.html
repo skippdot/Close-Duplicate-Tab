@@ -1,44 +1,287 @@
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Close Duplicate Tabs - Settings</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #f5f5f5;
+        line-height: 1.6;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 24px;
+      }
+      .version {
+        color: #666;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      fieldset {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      legend {
+        font-weight: bold;
+        color: #555;
+        padding: 0 10px;
+        font-size: 16px;
+      }
+      .setting-group {
+        margin-bottom: 25px;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 6px;
+        border-left: 4px solid #4285f4;
+      }
+      .setting-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .setting-header input[type='checkbox'] {
+        margin-right: 12px;
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+      .setting-header label {
+        cursor: pointer;
+        font-weight: 500;
+        color: #333;
+        font-size: 16px;
+      }
+      .setting-description {
+        margin-left: 30px;
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .setting-details {
+        margin-left: 30px;
+        margin-top: 8px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid #e0e0e0;
+      }
+      .setting-details h4 {
+        margin: 0 0 8px 0;
+        color: #555;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .setting-details ul {
+        margin: 5px 0;
+        padding-left: 20px;
+      }
+      .setting-details li {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 3px;
+      }
+      .save-section {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+      button {
+        background: #4285f4;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background-color 0.2s;
+      }
+      button:hover {
+        background: #3367d6;
+      }
+      button:active {
+        background: #2851a3;
+      }
+      .status-message {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        font-weight: 500;
+      }
+      .status-success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .status-error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .keyboard-shortcut {
+        background: #f0f0f0;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: monospace;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Close Duplicate Tabs Settings</h1>
+      <div class="version">Version 2.6.0</div>
 
-<head>
-  <title>Close Duplicate Tabs: Settings</title>
-</head>
+      <form id="settingsForm">
+        <fieldset>
+          <legend>🤖 Automation Settings</legend>
 
-<center>
-  <h1>Close Duplicate Tabs 2.5.1: Your preferences</h1>
-</center>
+          <div class="setting-group">
+            <div class="setting-header">
+              <input type="checkbox" id="autoClose" name="autoClose" />
+              <label for="autoClose">Auto Close Duplicate Tabs</label>
+            </div>
+            <div class="setting-description">
+              Automatically close duplicate tabs as they are detected, without requiring manual
+              intervention.
+            </div>
+            <div class="setting-details">
+              <h4>How it works:</h4>
+              <ul>
+                <li>Monitors tabs in real-time for duplicates</li>
+                <li>
+                  Waits 2 seconds after detecting duplicates before closing (prevents rapid firing)
+                </li>
+                <li>Preserves active and pinned tabs automatically</li>
+                <li>Works with suspended tabs from extensions like Marvellous Suspender</li>
+              </ul>
+              <h4>Best for:</h4>
+              <ul>
+                <li>Users who frequently open duplicate tabs accidentally</li>
+                <li>Heavy tab users who want automatic cleanup</li>
+                <li>Reducing manual maintenance of tab organization</li>
+              </ul>
+            </div>
+          </div>
 
-<table align="center">
-  <tr style="font-size: large;">
-    <td>
+          <div class="setting-group">
+            <div class="setting-header">
+              <input type="checkbox" id="currentWindowOnly" name="currentWindowOnly" />
+              <label for="currentWindowOnly">Current Window Only</label>
+            </div>
+            <div class="setting-description">
+              Limit duplicate detection and closing to tabs in the currently active browser window
+              only.
+            </div>
+            <div class="setting-details">
+              <h4>When enabled:</h4>
+              <ul>
+                <li>Only scans tabs in the window you're currently using</li>
+                <li>Ignores tabs in other browser windows</li>
+                <li>Badge count shows duplicates in current window only</li>
+                <li>
+                  Manual closing (<span class="keyboard-shortcut">Ctrl+Shift+D</span>) affects
+                  current window only
+                </li>
+              </ul>
+              <h4>Best for:</h4>
+              <ul>
+                <li>Users who work with multiple browser windows</li>
+                <li>Keeping different projects/contexts separated</li>
+                <li>Preventing accidental closure of tabs in other windows</li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
 
-      <body>
-        <h2>Basic Settings</h2>
-        <hr />
+        <fieldset>
+          <legend>📋 Organization Settings</legend>
 
-        <input type="checkbox" id="autoClose">Auto Close duplicates automatically</input><br />
-        <small style="color: #666; margin-left: 20px;">Automatically close duplicate tabs as they are detected (2 second delay)</small><br /><br />
+          <div class="setting-group">
+            <div class="setting-header">
+              <input type="checkbox" id="sortTabs" name="sortTabs" />
+              <label for="sortTabs">Sort Tabs by URL</label>
+            </div>
+            <div class="setting-description">
+              Reorganize tabs alphabetically by URL when closing duplicates to group related tabs
+              together.
+            </div>
+            <div class="setting-details">
+              <h4>How it works:</h4>
+              <ul>
+                <li>Sorts tabs alphabetically by their URL after closing duplicates</li>
+                <li>Groups tabs from the same domain together</li>
+                <li>Maintains window separation (sorts within each window)</li>
+                <li>Preserves pinned tab positions</li>
+              </ul>
+              <h4>Example result:</h4>
+              <ul>
+                <li>github.com/project1, github.com/project2</li>
+                <li>google.com/search, google.com/docs</li>
+                <li>stackoverflow.com/question1, stackoverflow.com/question2</li>
+              </ul>
+              <h4>Best for:</h4>
+              <ul>
+                <li>Users who prefer organized, grouped tabs</li>
+                <li>Finding related tabs more easily</li>
+                <li>Maintaining consistent tab organization</li>
+              </ul>
+            </div>
+          </div>
+        </fieldset>
 
-        <input type="checkbox" id="currentWindowOnly">Limit to current window only</input><br />
-        <small style="color: #666; margin-left: 20px;">Only track and close duplicates in the currently active window</small><br />
+        <div class="save-section">
+          <button type="submit" id="save">Save Settings</button>
+          <div
+            id="status"
+            class="status-message"
+            role="status"
+            aria-live="polite"
+            style="display: none"
+          ></div>
+        </div>
+      </form>
 
-        <br />
+      <div
+        style="
+          margin-top: 30px;
+          padding: 15px;
+          background: #f0f8ff;
+          border-radius: 6px;
+          border-left: 4px solid #2196f3;
+        "
+      >
+        <h4 style="margin: 0 0 10px 0; color: #1976d2">💡 Quick Tips</h4>
+        <ul style="margin: 0; color: #555; font-size: 14px">
+          <li>
+            Use <span class="keyboard-shortcut">Ctrl+Shift+D</span> (or
+            <span class="keyboard-shortcut">Cmd+Shift+D</span> on Mac) to manually close duplicates
+          </li>
+          <li>The extension badge shows the number of duplicate tabs detected</li>
+          <li>Active and pinned tabs are always preserved when closing duplicates</li>
+          <li>Works with tab suspender extensions like Marvellous Suspender</li>
+          <li>All processing happens locally - no data is sent to external servers</li>
+        </ul>
+      </div>
+    </div>
 
-        <h2>Other Settings</h2>
-        <hr />
-
-        <input type="checkbox" id="sortTabs">Re-organize (sort) tabs by URL</input><br />
-
-        <br />
-
-        <button id="save">Save</button>
-
-        <div id="status" style="color: blue;"></div>
-
-        <script src="options.js"></script>
-      </body>
-    </td>
-  </tr>
-</table>
-
+    <script src="options.js"></script>
+  </body>
 </html>
