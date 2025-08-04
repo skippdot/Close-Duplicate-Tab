@@ -5,9 +5,49 @@ All notable changes to the Close Duplicate Tab extension will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2024-12-08
+## [2.7.0] - 2024-12-08
 
-### 🎨 User Interface Improvements
+### 🎨 Major UI Overhaul - Collapsible Settings & Enhanced Domains
+
+#### 🔽 Collapsible Settings
+- **Interactive Settings**: Click arrows (▼/▲) to expand/collapse detailed descriptions
+- **Comprehensive Explanations**: Each setting now includes how it works, examples, and best use cases
+- **Sort Tabs Clarification**: Added clear explanation that it sorts ALL tabs, not just duplicates
+- **Professional Animations**: Smooth CSS transitions and visual feedback
+- **Progressive Disclosure**: Information appears when needed, reducing cognitive load
+
+#### 🌐 Enhanced Top Domains
+- **Search Functionality**: Real-time search across domains, page titles, and URLs
+- **Expandable Domain Groups**: Click domain headers to show all tabs (not just 5+)
+- **Tab Switching**: Click any tab in the list to switch to it instantly
+- **Visual Status Indicators**: 🔵 active, 📌 pinned, 💤 suspended tabs
+- **Professional Styling**: Hover effects, clean grouping, and intuitive interactions
+
+#### 🎨 Two-Panel Layout
+- **Left Panel**: Current Tab Statistics with enhanced domains functionality
+- **Right Panel**: Settings with collapsible descriptions
+- **Responsive Design**: Grid layout that adapts to different screen sizes
+- **Improved Information Architecture**: Logical grouping and visual hierarchy
+
+#### 📋 Sort Tabs Feature Clarification
+- **Clear Documentation**: Detailed before/after examples showing actual tab arrangements
+- **Visual Examples**: Step-by-step demonstration of how tabs are reorganized
+- **Behavior Explanation**: Clarified that it affects ALL tabs alphabetically by URL
+- **Domain Grouping**: Shows how related domains are grouped together
+
+### 🔧 Technical Improvements
+- **Enhanced Tab Switching**: Automatic window focus management for better UX
+- **Efficient Search**: Real-time filtering with optimized algorithms
+- **State Management**: Improved event handling and UI state consistency
+- **Performance**: Minimal DOM manipulation for smooth interactions
+
+### 🎯 User Experience Enhancements
+- **Intuitive Interactions**: Clear visual feedback on all clickable elements
+- **Professional Design**: Modern styling with consistent design language
+- **Enhanced Accessibility**: Maintained keyboard navigation and screen reader support
+- **Information Density**: Better use of space with two-panel layout
+
+### 🎨 Previous UI Improvements (from earlier releases)
 - **Enhanced Options Page**: Complete redesign with modern HTML5 structure and professional styling
 - **Detailed Setting Descriptions**: Comprehensive explanations for each setting with usage examples
 - **Improved Accessibility**: Proper labels, ARIA attributes, and keyboard navigation support
@@ -22,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Enhanced Documentation**: Added comprehensive linting guide and development instructions
 
 ### 📚 Documentation Enhancements
+- **New Features Demo**: Complete demonstration guide for all new features
 - **Linting Guide**: Complete guide for code quality standards and development workflow
 - **Improved README**: Added development tools information and npm scripts documentation
 - **Installation Guide**: Enhanced with troubleshooting and verification steps
