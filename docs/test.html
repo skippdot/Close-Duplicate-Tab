@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Close Duplicate Tab - Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #555;
+        }
+        button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #3367d6;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Close Duplicate Tab Extension - Test Page</h1>
+        
+        <div class="test-section">
+            <h3>🧪 Test URL Extraction</h3>
+            <p>Test the URL extraction functionality for suspended tabs:</p>
+            <button onclick="testUrlExtraction()">Run URL Extraction Tests</button>
+            <div id="urlTestResults" class="log" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📊 Extension Status</h3>
+            <p>Check if the extension is working properly:</p>
+            <button onclick="checkExtensionStatus()">Check Extension Status</button>
+            <div id="extensionStatus" class="status" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔗 Create Test Tabs</h3>
+            <p>Create duplicate tabs to test the extension:</p>
+            <button onclick="createTestTabs()">Create 3 Duplicate Tabs</button>
+            <button onclick="createMixedTabs()">Create Mixed Test Tabs</button>
+            <div id="tabCreationStatus" class="status" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>⚙️ Test Settings</h3>
+            <p>Test the extension settings:</p>
+            <button onclick="openOptions()">Open Options Page</button>
+            <button onclick="testSettings()">Test Current Settings</button>
+            <div id="settingsStatus" class="status" style="display: none;"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>📝 Test Log</h3>
+            <div id="testLog" class="log"></div>
+            <button onclick="clearLog()">Clear Log</button>
+        </div>
+    </div>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('testLog');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${timestamp}] ${message}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function testUrlExtraction() {
+            const resultsDiv = document.getElementById('urlTestResults');
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = '';
+            
+            // Copy the extractRealUrl function for testing
+            function extractRealUrl(tabUrl) {
+                if (tabUrl.includes('suspended.html#')) {
+                    try {
+                        const hashPart = tabUrl.split('#')[1];
+                        const params = new URLSearchParams(hashPart);
+                        const realUrl = params.get('uri');
+                        if (realUrl) {
+                            return decodeURIComponent(realUrl);
+                        }
+                    } catch (error) {
+                        console.warn('Failed to extract real URL from suspended tab:', error);
+                    }
+                }
+                
+                if (tabUrl.includes('chrome-extension://') && tabUrl.includes('suspended')) {
+                    try {
+                        const url = new URL(tabUrl);
+                        const realUrl = url.searchParams.get('uri') || 
+                                        url.hash.match(/uri=([^&]+)/)?.[1];
+                        if (realUrl) {
+                            return decodeURIComponent(realUrl);
+                        }
+                    } catch (error) {
+                        console.warn('Failed to extract URL from suspender:', error);
+                    }
+                }
+                
+                return tabUrl;
+            }
+
+            // Test cases
+            const tests = [
+                {
+                    name: 'Marvellous Suspender URL',
+                    input: 'chrome-extension://noogafoofpebimajpfpamcfhoaifemoa/suspended.html#ttl=Test&pos=0&uri=https://developer.chrome.com/docs/webstore/program-policies/user-data-faq',
+                    expected: 'https://developer.chrome.com/docs/webstore/program-policies/user-data-faq'
+                },
+                {
+                    name: 'Normal URL',
+                    input: 'https://www.google.com',
+                    expected: 'https://www.google.com'
+                },
+                {
+                    name: 'URL Encoded Suspended URL',
+                    input: 'chrome-extension://test123/suspended.html#uri=https%3A//example.com/page%3Fq%3Dtest',
+                    expected: 'https://example.com/page?q=test'
+                }
+            ];
+
+            let passedTests = 0;
+            tests.forEach((test, index) => {
+                const result = extractRealUrl(test.input);
+                const passed = result === test.expected;
+                if (passed) passedTests++;
+                
+                resultsDiv.innerHTML += `
+                    <strong>Test ${index + 1}: ${test.name}</strong><br>
+                    Input: ${test.input.substring(0, 80)}...<br>
+                    Expected: ${test.expected}<br>
+                    Got: ${result}<br>
+                    Result: ${passed ? '✅ PASS' : '❌ FAIL'}<br><br>
+                `;
+            });
+
+            resultsDiv.innerHTML += `<strong>Summary: ${passedTests}/${tests.length} tests passed</strong>`;
+            log(`URL extraction tests completed: ${passedTests}/${tests.length} passed`);
+        }
+
+        function checkExtensionStatus() {
+            const statusDiv = document.getElementById('extensionStatus');
+            statusDiv.style.display = 'block';
+            
+            // Check if Chrome extension APIs are available
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                statusDiv.innerHTML = '✅ Chrome extension APIs are available';
+                statusDiv.style.background = '#e8f5e8';
+                statusDiv.style.borderColor = '#4caf50';
+                log('Extension APIs available');
+            } else {
+                statusDiv.innerHTML = '❌ Chrome extension APIs not available (this is normal for web pages)';
+                statusDiv.style.background = '#fff3cd';
+                statusDiv.style.borderColor = '#ffc107';
+                log('Extension APIs not available (expected for web page)');
+            }
+        }
+
+        function createTestTabs() {
+            const statusDiv = document.getElementById('tabCreationStatus');
+            statusDiv.style.display = 'block';
+            
+            // Create duplicate tabs
+            const testUrl = 'https://www.google.com';
+            for (let i = 0; i < 3; i++) {
+                window.open(testUrl, '_blank');
+            }
+            
+            statusDiv.innerHTML = '✅ Created 3 duplicate tabs with Google.com';
+            log('Created 3 duplicate test tabs');
+        }
+
+        function createMixedTabs() {
+            const statusDiv = document.getElementById('tabCreationStatus');
+            statusDiv.style.display = 'block';
+            
+            const urls = [
+                'https://www.google.com',
+                'https://www.github.com',
+                'https://www.google.com', // Duplicate
+                'https://stackoverflow.com',
+                'https://www.github.com'  // Duplicate
+            ];
+            
+            urls.forEach(url => {
+                window.open(url, '_blank');
+            });
+            
+            statusDiv.innerHTML = '✅ Created mixed tabs with duplicates';
+            log('Created mixed test tabs with duplicates');
+        }
+
+        function openOptions() {
+            // This would work in the extension context
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                chrome.runtime.openOptionsPage();
+            } else {
+                alert('This function only works when the extension is loaded');
+            }
+            log('Attempted to open options page');
+        }
+
+        function testSettings() {
+            const statusDiv = document.getElementById('settingsStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.innerHTML = '⚠️ Settings testing requires extension context';
+            log('Settings test requires extension context');
+        }
+
+        function clearLog() {
+            document.getElementById('testLog').innerHTML = '';
+        }
+
+        // Initialize
+        log('Test page loaded successfully');
+        log('Ready to test Close Duplicate Tab extension');
+    </script>
+</body>
+</html>
