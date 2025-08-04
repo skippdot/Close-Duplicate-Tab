@@ -142,12 +142,125 @@
         font-family: monospace;
         font-size: 12px;
       }
+      .stats-section {
+        margin-top: 30px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #28a745;
+      }
+      .stats-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      .stats-header h3 {
+        margin: 0;
+        color: #155724;
+        font-size: 18px;
+      }
+      .refresh-btn {
+        margin-left: auto;
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .refresh-btn:hover {
+        background: #218838;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      .stat-item {
+        background: white;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        text-align: center;
+      }
+      .stat-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #495057;
+        margin-bottom: 5px;
+      }
+      .stat-label {
+        font-size: 12px;
+        color: #6c757d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .duplicates-list {
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .duplicates-header {
+        padding: 10px 15px;
+        background: #e9ecef;
+        border-bottom: 1px solid #dee2e6;
+        font-weight: bold;
+        font-size: 14px;
+        color: #495057;
+      }
+      .duplicate-item {
+        padding: 8px 15px;
+        border-bottom: 1px solid #f8f9fa;
+        font-size: 13px;
+        color: #6c757d;
+      }
+      .duplicate-item:last-child {
+        border-bottom: none;
+      }
+      .duplicate-count {
+        color: #dc3545;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      .domains-list {
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        margin-top: 15px;
+      }
+      .domains-header {
+        padding: 10px 15px;
+        background: #e3f2fd;
+        border-bottom: 1px solid #dee2e6;
+        font-weight: bold;
+        font-size: 14px;
+        color: #1976d2;
+      }
+      .domain-item {
+        padding: 6px 15px;
+        border-bottom: 1px solid #f8f9fa;
+        font-size: 13px;
+        color: #6c757d;
+        display: flex;
+        justify-content: space-between;
+      }
+      .domain-item:last-child {
+        border-bottom: none;
+      }
+      .domain-count {
+        color: #1976d2;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Close Duplicate Tabs Settings</h1>
-      <div class="version">Version 2.6.0</div>
+      <div class="version">Version 2.6.1</div>
 
       <form id="settingsForm">
         <fieldset>
@@ -279,6 +392,58 @@
           <li>Works with tab suspender extensions like Marvellous Suspender</li>
           <li>All processing happens locally - no data is sent to external servers</li>
         </ul>
+      </div>
+
+      <div class="stats-section" id="statsSection">
+        <div class="stats-header">
+          <h3>📊 Current Tab Statistics</h3>
+          <button type="button" class="refresh-btn" id="refreshStats">🔄 Refresh</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value" id="totalTabs">-</div>
+            <div class="stat-label">Total Tabs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="uniqueUrls">-</div>
+            <div class="stat-label">Unique URLs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="duplicateTabs">-</div>
+            <div class="stat-label">Duplicate Tabs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="suspendedTabs">-</div>
+            <div class="stat-label">Suspended Tabs</div>
+          </div>
+        </div>
+
+        <div class="duplicates-list" id="duplicatesList" style="display: none">
+          <div class="duplicates-header">🔍 Duplicate URLs Found</div>
+          <div id="duplicatesContent"></div>
+        </div>
+
+        <div class="domains-list" id="domainsList" style="display: none">
+          <div class="domains-header">🌐 Top Domains (5+ tabs)</div>
+          <div id="domainsContent"></div>
+        </div>
+
+        <div
+          style="
+            margin-top: 15px;
+            padding: 10px;
+            background: #fff3cd;
+            border-radius: 4px;
+            border: 1px solid #ffeaa7;
+            font-size: 13px;
+            color: #856404;
+          "
+        >
+          <strong>Note:</strong> Statistics are updated in real-time as you browse. If you see
+          "Tabs: 1" but have many tabs open, try refreshing this page or reloading the extension.
+          This can happen due to Chrome's extension lifecycle management.
+        </div>
       </div>
     </div>
 
