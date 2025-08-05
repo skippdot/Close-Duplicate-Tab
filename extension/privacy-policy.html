@@ -6,102 +6,343 @@
     <title>Close Duplicate Tab - Privacy Policy</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         line-height: 1.6;
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 30px;
         color: #333;
+        background: #f8f9fa;
       }
-      h1,
+      .container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
       h2 {
         color: #2c3e50;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-left: 4px solid #3498db;
+        padding-left: 15px;
       }
       .last-updated {
         color: #666;
         font-style: italic;
+        background: #e8f4f8;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+      }
+      .highlight {
+        background: #d4edda;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #28a745;
+        margin: 20px 0;
+      }
+      .warning {
+        background: #fff3cd;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #ffc107;
+        margin: 20px 0;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #dee2e6;
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+      }
+      .footer a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <h1>Privacy Policy for Close Duplicate Tab</h1>
-    <p class="last-updated">Last updated: July 25, 2025</p>
+    <div class="container">
+      <h1>Privacy Policy for Close Duplicate Tab</h1>
+      <p class="last-updated">Last updated: August 5, 2025 | Version 2.7.0</p>
 
-    <h2>Overview</h2>
-    <p>
-      Close Duplicate Tab is a Chrome extension that helps users identify and close duplicate
-      browser tabs with identical URLs. This privacy policy explains how the extension handles data.
-    </p>
+      <div class="highlight">
+        <strong>🔒 Privacy First:</strong> Close Duplicate Tab is designed with privacy as a core
+        principle. We do not collect, store, or transmit any personal data. All processing happens
+        locally in your browser.
+      </div>
 
-    <h2>Data Collection</h2>
-    <p>
-      <strong>We do not collect any personal data.</strong> The extension operates entirely within
-      your browser and does not transmit any information to external servers.
-    </p>
+      <h2>Overview</h2>
+      <p>
+        Close Duplicate Tab is a Chrome extension that helps users manage browser tab clutter by
+        automatically identifying and closing duplicate tabs with identical URLs. This privacy
+        policy explains how the extension handles data and protects your privacy.
+      </p>
+      <p>
+        <strong>Key Features:</strong> Automatic duplicate detection, smart tab preservation, tab
+        suspender compatibility, real-time statistics, search functionality, and professional
+        dashboard interface.
+      </p>
 
-    <h2>Data Usage</h2>
-    <p>The extension accesses the following data solely for its functionality:</p>
-    <ul>
-      <li>
-        <strong>Tab URLs and Titles:</strong> Used to identify duplicate tabs with identical URLs
-      </li>
-      <li>
-        <strong>Tab States:</strong> Used to determine which tabs are active, pinned, or in
-        different windows
-      </li>
-    </ul>
-    <p>
-      This data is processed locally in your browser and is never stored permanently or transmitted
-      externally.
-    </p>
+      <h2>Data Collection</h2>
+      <div class="highlight">
+        <p>
+          <strong>🚫 Zero Data Collection:</strong> We do not collect any personal data, browsing
+          history, or personally identifiable information. The extension operates entirely within
+          your browser and does not transmit any information to external servers.
+        </p>
+      </div>
 
-    <h2>Data Storage</h2>
-    <p>The extension stores only user preferences using Chrome's sync storage:</p>
-    <ul>
-      <li><strong>sortTabs:</strong> Whether to reorganize tabs by URL when closing duplicates</li>
-      <li>
-        <strong>autoClose:</strong> Preference for automatic duplicate closing (feature not yet
-        implemented)
-      </li>
-      <li>
-        <strong>currentWindowOnly:</strong> Preference to limit duplicate detection to current
-        window (feature not yet implemented)
-      </li>
-    </ul>
-    <p>
-      These preferences are stored locally and synced across your Chrome browsers if you're signed
-      into Chrome.
-    </p>
+      <h2>Data Access & Usage</h2>
+      <p>The extension accesses the following data solely for its core functionality:</p>
+      <ul>
+        <li>
+          <strong>Tab URLs:</strong> Read to identify duplicate tabs with identical URLs, including
+          extraction of real URLs from suspended tabs (Marvellous Suspender compatibility)
+        </li>
+        <li>
+          <strong>Tab Titles:</strong> Read to display in the statistics dashboard and domain
+          listings
+        </li>
+        <li>
+          <strong>Tab States:</strong> Read to determine which tabs are active, pinned, suspended,
+          or in different browser windows
+        </li>
+        <li>
+          <strong>Window Information:</strong> Read to support "Current Window Only" functionality
+        </li>
+      </ul>
+      <div class="highlight">
+        <p>
+          <strong>🔄 Local Processing Only:</strong> All data is processed locally in your browser
+          in real-time. No data is stored permanently, cached, or transmitted to external servers.
+          When you close the extension, all processed data is immediately discarded.
+        </p>
+      </div>
 
-    <h2>Permissions</h2>
-    <p>The extension requires the following permissions:</p>
-    <ul>
-      <li>
-        <strong>tabs:</strong> Required to read tab URLs/titles, identify duplicates, and close
-        duplicate tabs
-      </li>
-      <li><strong>storage:</strong> Required to save your preferences</li>
-    </ul>
+      <h2>Data Storage</h2>
+      <p>The extension stores only user preferences using Chrome's secure sync storage:</p>
+      <ul>
+        <li>
+          <strong>autoClose:</strong> Your preference for automatic duplicate closing (boolean:
+          true/false)
+        </li>
+        <li>
+          <strong>currentWindowOnly:</strong> Your preference to limit duplicate detection to the
+          current window only (boolean: true/false)
+        </li>
+        <li>
+          <strong>sortTabs:</strong> Your preference to reorganize all tabs alphabetically by URL
+          when closing duplicates (boolean: true/false)
+        </li>
+      </ul>
+      <div class="warning">
+        <p>
+          <strong>📝 Settings Storage:</strong> These preferences are stored locally on your device
+          and synced across your Chrome browsers if you're signed into Chrome. This sync is handled
+          entirely by Google Chrome's built-in sync service - we do not have access to this data.
+        </p>
+      </div>
+      <p><strong>What we DON'T store:</strong></p>
+      <ul>
+        <li>❌ Browsing history or visited URLs</li>
+        <li>❌ Tab content or page data</li>
+        <li>❌ Personal information or identifiers</li>
+        <li>❌ Usage analytics or tracking data</li>
+        <li>❌ Any data on external servers</li>
+      </ul>
 
-    <h2>Third-Party Services</h2>
-    <p>This extension does not use any third-party services, analytics, or tracking tools.</p>
+      <h2>Chrome Permissions</h2>
+      <p>The extension requests minimal permissions necessary for its functionality:</p>
+      <ul>
+        <li>
+          <strong>"tabs":</strong> Required to:
+          <ul>
+            <li>Read tab URLs and titles to identify duplicates</li>
+            <li>Detect tab states (active, pinned, suspended)</li>
+            <li>Close duplicate tabs</li>
+            <li>Switch to tabs when clicked in the dashboard</li>
+            <li>Support multi-window functionality</li>
+          </ul>
+        </li>
+        <li>
+          <strong>"storage":</strong> Required to:
+          <ul>
+            <li>Save your extension preferences (autoClose, currentWindowOnly, sortTabs)</li>
+            <li>Sync settings across your Chrome browsers (if Chrome sync is enabled)</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="warning">
+        <p>
+          <strong>🔒 Minimal Permissions:</strong> We only request the minimum permissions necessary
+          for the extension to function. We do not request access to browsing history, bookmarks,
+          downloads, or any other sensitive data.
+        </p>
+      </div>
 
-    <h2>Data Security</h2>
-    <p>
-      All data processing occurs locally within your browser. No data is transmitted to external
-      servers or third parties.
-    </p>
+      <h2>Third-Party Services</h2>
+      <div class="highlight">
+        <p>
+          <strong>🚫 Zero Third-Party Dependencies:</strong> This extension does not use any
+          third-party services, analytics tools, tracking scripts, advertising networks, or external
+          APIs. It operates completely independently within your browser.
+        </p>
+      </div>
 
-    <h2>Changes to This Policy</h2>
-    <p>
-      If we make changes to this privacy policy, we will update the "Last updated" date at the top
-      of this page.
-    </p>
+      <h2>Data Security</h2>
+      <p><strong>Security measures in place:</strong></p>
+      <ul>
+        <li>
+          🔒 <strong>Local Processing:</strong> All data processing occurs locally within your
+          browser
+        </li>
+        <li>
+          🚫 <strong>No External Transmission:</strong> No data is transmitted to external servers
+          or third parties
+        </li>
+        <li>
+          🔄 <strong>Real-time Processing:</strong> Tab data is processed in real-time and
+          immediately discarded
+        </li>
+        <li>
+          🛡️ <strong>Chrome Security:</strong> Benefits from Chrome's built-in extension security
+          model
+        </li>
+        <li>
+          📂 <strong>Open Source:</strong> Full source code is publicly available for security
+          review
+        </li>
+      </ul>
 
-    <h2>Contact</h2>
-    <p>
-      If you have questions about this privacy policy, please contact us through the Chrome Web
-      Store listing.
-    </p>
+      <h2>Open Source Transparency</h2>
+      <p>Close Duplicate Tab is fully open source, which means:</p>
+      <ul>
+        <li>
+          📂 <strong>Source Code:</strong> Complete source code is available at
+          <a
+            href="https://github.com/skippdot/Close-Duplicate-Tab/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </li>
+        <li>
+          🔍 <strong>Code Review:</strong> Anyone can review the code to verify privacy claims
+        </li>
+        <li>
+          🛡️ <strong>Security Audits:</strong> Community can identify and report security issues
+        </li>
+        <li>
+          🤝 <strong>Contributions:</strong> Community contributions improve the extension for
+          everyone
+        </li>
+      </ul>
+
+      <h2>Your Rights</h2>
+      <p>Since we don't collect any personal data, there's no personal data to:</p>
+      <ul>
+        <li>✅ Access (no data stored about you)</li>
+        <li>✅ Correct (no data to correct)</li>
+        <li>✅ Delete (no data to delete)</li>
+        <li>✅ Port (no data to export)</li>
+      </ul>
+      <p>
+        You can uninstall the extension at any time to completely remove it and all its stored
+        preferences.
+      </p>
+
+      <h2>Compliance</h2>
+      <p>This extension complies with:</p>
+      <ul>
+        <li>
+          🇪🇺 <strong>GDPR (General Data Protection Regulation)</strong> - No personal data
+          processing
+        </li>
+        <li>
+          🇺🇸 <strong>CCPA (California Consumer Privacy Act)</strong> - No personal information
+          collection
+        </li>
+        <li>
+          🌐 <strong>Chrome Web Store Policies</strong> - Follows all Chrome extension guidelines
+        </li>
+        <li>
+          🔒 <strong>Privacy by Design</strong> - Built with privacy as a fundamental principle
+        </li>
+      </ul>
+
+      <h2>Changes to This Policy</h2>
+      <p>If we make changes to this privacy policy, we will:</p>
+      <ul>
+        <li>Update the "Last updated" date at the top of this page</li>
+        <li>Update the version number to match the extension version</li>
+        <li>Notify users through the extension update process if changes are significant</li>
+      </ul>
+      <p>
+        We recommend reviewing this policy periodically to stay informed about how we protect your
+        privacy.
+      </p>
+
+      <h2>Contact Information</h2>
+      <p>If you have questions about this privacy policy or the extension, you can:</p>
+      <ul>
+        <li>
+          📧 <strong>GitHub Issues:</strong>
+          <a
+            href="https://github.com/skippdot/Close-Duplicate-Tab/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Report issues or ask questions</a
+          >
+        </li>
+        <li>
+          💬 <strong>GitHub Discussions:</strong>
+          <a
+            href="https://github.com/skippdot/Close-Duplicate-Tab/discussions"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Community discussions</a
+          >
+        </li>
+        <li>🏪 <strong>Chrome Web Store:</strong> Leave feedback on the extension listing</li>
+      </ul>
+
+      <div class="footer">
+        <p>
+          <strong>Close Duplicate Tab v2.7.0</strong><br />
+          Open Source • Privacy First • No Data Collection<br />
+          <a
+            href="https://github.com/skippdot/Close-Duplicate-Tab/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View Source Code</a
+          >
+          |
+          <a
+            href="https://skippdot.github.io/Close-Duplicate-Tab/extension/privacy-policy.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Latest Privacy Policy</a
+          >
+        </p>
+      </div>
+    </div>
   </body>
 </html>
