@@ -12,7 +12,7 @@
     "description": "Title of the settings page"
   },
   "version": {
-    "message": "版本 2.7.0",
+    "message": "版本 2.7.2",
     "description": "Version number display"
   },
   "currentTabStatistics": {
@@ -132,7 +132,7 @@
     "description": "Current window how it works point 3"
   },
   "currentWindowWork4": {
-    "message": "手动关闭（Ctrl+Shift+D）仅影响当前窗口",
+    "message": "手动关闭（Alt+Shift+D）仅影响当前窗口",
     "description": "Current window how it works point 4"
   },
   "currentWindowBest1": {
@@ -220,7 +220,7 @@
     "description": "Title for quick tips section"
   },
   "tip1": {
-    "message": "使用 Ctrl+Shift+D（Mac上为 Cmd+Shift+D）手动关闭重复项",
+    "message": "使用 Alt+Shift+D（Mac上为 Option+Shift+D）手动关闭重复项",
     "description": "Quick tip 1"
   },
   "tip2": {

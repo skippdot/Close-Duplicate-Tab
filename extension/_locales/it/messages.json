@@ -12,7 +12,7 @@
     "description": "Title of the settings page"
   },
   "version": {
-    "message": "Versione 2.7.0",
+    "message": "Versione 2.7.2",
     "description": "Version number display"
   },
   "currentTabStatistics": {
@@ -132,7 +132,7 @@
     "description": "Current window how it works point 3"
   },
   "currentWindowWork4": {
-    "message": "La chiusura manuale (Ctrl+Shift+D) influisce solo sulla finestra corrente",
+    "message": "La chiusura manuale (Alt+Shift+D) influisce solo sulla finestra corrente",
     "description": "Current window how it works point 4"
   },
   "currentWindowBest1": {
@@ -220,7 +220,7 @@
     "description": "Title for quick tips section"
   },
   "tip1": {
-    "message": "Usa Ctrl+Shift+D (o Cmd+Shift+D su Mac) per chiudere manualmente i duplicati",
+    "message": "Usa Alt+Shift+D (o Option+Shift+D su Mac) per chiudere manualmente i duplicati",
     "description": "Quick tip 1"
   },
   "tip2": {

@@ -12,7 +12,7 @@
     "description": "Title of the settings page"
   },
   "version": {
-    "message": "संस्करण 2.7.0",
+    "message": "संस्करण 2.7.2",
     "description": "Version number display"
   },
   "currentTabStatistics": {
@@ -132,7 +132,7 @@
     "description": "Current window how it works point 3"
   },
   "currentWindowWork4": {
-    "message": "मैन्युअल बंद करना (Ctrl+Shift+D) केवल वर्तमान विंडो को प्रभावित करता है",
+    "message": "मैन्युअल बंद करना (Alt+Shift+D) केवल वर्तमान विंडो को प्रभावित करता है",
     "description": "Current window how it works point 4"
   },
   "currentWindowBest1": {
@@ -220,7 +220,7 @@
     "description": "Title for quick tips section"
   },
   "tip1": {
-    "message": "डुप्लिकेट को मैन्युअल रूप से बंद करने के लिए Ctrl+Shift+D (Mac पर Cmd+Shift+D) का उपयोग करें",
+    "message": "डुप्लिकेट को मैन्युअल रूप से बंद करने के लिए Alt+Shift+D (Mac पर Option+Shift+D) का उपयोग करें",
     "description": "Quick tip 1"
   },
   "tip2": {

@@ -12,7 +12,7 @@
     "description": "Title of the settings page"
   },
   "version": {
-    "message": "Версия 2.7.0",
+    "message": "Версия 2.7.2",
     "description": "Version number display"
   },
   "currentTabStatistics": {
@@ -132,7 +132,7 @@
     "description": "Current window how it works point 3"
   },
   "currentWindowWork4": {
-    "message": "Ръчното затваряне (Ctrl+Shift+D) засяга само текущия прозорец",
+    "message": "Ръчното затваряне (Alt+Shift+D) засяга само текущия прозорец",
     "description": "Current window how it works point 4"
   },
   "currentWindowBest1": {
@@ -220,7 +220,7 @@
     "description": "Title for quick tips section"
   },
   "tip1": {
-    "message": "Използвайте Ctrl+Shift+D (или Cmd+Shift+D на Mac) за ръчно затваряне на дубликати",
+    "message": "Използвайте Alt+Shift+D (или Option+Shift+D на Mac) за ръчно затваряне на дубликати",
     "description": "Quick tip 1"
   },
   "tip2": {

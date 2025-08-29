@@ -1,6 +1,6 @@
 {
   "name": "close-duplicate-tab-tests",
-  "version": "2.7.0",
+  "version": "2.7.2",
   "type": "module",
   "description": "Unit tests for Close Duplicate Tab extension",
   "scripts": {
@@ -29,8 +29,8 @@
       "<rootDir>/tests/setup.js"
     ],
     "collectCoverageFrom": [
-      "close_tabs.js",
-      "options.js"
+      "extension/close_tabs.js",
+      "extension/options.js"
     ],
     "coverageDirectory": "coverage",
     "coverageReporters": [
