@@ -36,7 +36,7 @@ npm run test:url
 - [ ] **Tab Counting**: Open multiple tabs, verify badge shows correct count
 - [ ] **Duplicate Detection**: Create duplicate tabs, verify badge shows duplicates
 - [ ] **Tab Closing**: Click extension icon, verify duplicates are closed
-- [ ] **Keyboard Shortcut**: Use Ctrl+Shift+D (Cmd+Shift+D on Mac)
+- [ ] **Keyboard Shortcut**: Use Alt+Shift+D (Option+Shift+D on Mac)
 
 ### 3. Marvellous Suspender Compatibility
 - [ ] Install Marvellous Suspender extension

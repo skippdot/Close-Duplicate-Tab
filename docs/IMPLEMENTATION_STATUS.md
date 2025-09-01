@@ -134,7 +134,7 @@
    - Verify settings are saved and loaded correctly
 
 7. **Test Keyboard Shortcut**:
-   - Use Ctrl+Shift+D (Cmd+Shift+D on Mac)
+   - Use Alt+Shift+D (Option+Shift+D on Mac)
    - Verify it closes duplicate tabs
 
 ## 🐛 **KNOWN ISSUES TO MONITOR**

@@ -1,12 +1,12 @@
-# Chrome Web Store Package Summary - v2.7.0
+# Chrome Web Store Package Summary - v2.7.2
 
-## 📦 **Package Created Successfully**
+## Package Created Successfully
 
-### File Information:
-- **Package Name**: `close-duplicate-tab-v2.7.0.zip`
+### File Information
+- **Package Name**: `close-duplicate-tab-v2.7.2.zip`
 - **File Size**: 28.5 KB
-- **Location**: `/Users/skipp/Downloads/Close-Duplicate-Tab-Chrome-Web-Store/close-duplicate-tab-v2.7.0.zip`
-- **Created**: August 5, 2025
+- **Location**: `/Users/skipp/Downloads/Close-Duplicate-Tab-Chrome-Web-Store/close-duplicate-tab-v2.7.2.zip`
+- **Created**: September 2, 2025
 
 ## ✅ **Package Validation**
 
@@ -47,7 +47,7 @@
 3. **Tab Suspender Compatibility** - Works with Marvellous Suspender
 4. **Professional UI** - Two-panel layout with statistics
 5. **Interactive Features** - Search, tab switching, collapsible settings
-6. **Keyboard Shortcuts** - Ctrl+Shift+D for quick access
+6. **Keyboard Shortcuts** - Alt+Shift+D for quick access
 7. **Privacy-First** - No data collection, local processing only
 
 ## 🚀 **Next Steps**

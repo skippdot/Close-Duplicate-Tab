@@ -25,7 +25,7 @@ _Coming soon - the extension is being updated with new features_
 - **⚡ Auto-Close Mode**: Automatically close duplicates as they're detected
 - **🪟 Window Filtering**: Option to limit duplicate detection to current window only
 - **📋 Tab Sorting**: Reorganize tabs by URL when closing duplicates
-- **⌨️ Keyboard Shortcut**: `Ctrl+Shift+D` (or `Cmd+Shift+D` on Mac)
+- **⌨️ Keyboard Shortcut**: `Alt+Shift+D` (or `Option+Shift+D` on Mac)
 - **🔒 Privacy First**: No data collection, all processing happens locally
 
 ## 🎮 How to Use
@@ -34,7 +34,7 @@ _Coming soon - the extension is being updated with new features_
 
 1. **Automatic Detection**: The extension automatically monitors your tabs
 2. **View Duplicates**: Check the badge number on the extension icon
-3. **Close Duplicates**: Click the extension icon or use `Ctrl+Shift+D`
+3. **Close Duplicates**: Click the extension icon or use `Alt+Shift+D`
 4. **Smart Preservation**: Active and pinned tabs are automatically preserved
 
 ### Settings

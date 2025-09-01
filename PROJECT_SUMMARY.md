@@ -16,7 +16,7 @@ This project represents a complete overhaul and modernization of the Close Dupli
 ### ✨ New Features Implemented
 - **Auto-Close Mode**: Automatically close duplicates with 2-second debouncing
 - **Enhanced Options Page**: Fully functional settings with modern UI
-- **Keyboard Shortcuts**: Added Ctrl+Shift+D (Cmd+Shift+D on Mac)
+- **Keyboard Shortcuts**: Added Alt+Shift+D (Option+Shift+D on Mac)
 - **Tab Suspender Support**: Works with Marvellous Suspender and other extensions
 - **Performance Optimization**: Handles large tab counts efficiently
 

@@ -5,6 +5,24 @@ All notable changes to the Close Duplicate Tab extension will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [2.7.2] - 2025-09-02
+
+### Changed
+- Global language override now applies to popup and badge tooltips
+- Automation Settings headers: label toggles checkbox; other header areas expand/collapse
+- Default badge color set to green
+- New Tab and about:blank duplicates are closeable (keeping one)
+
+### Fixed
+- Consistent counts across popup, badge, and tooltip (shared computeCountsFromTabs)
+- Duplicate list shows count-to-close and enables action based on closeable duplicates
+- Multi-window duplicate handling preserves the active tab deterministically
+
+### Internal
+- Tests added/updated for counts, popup wiring, and active-tab preservation across windows
+- Lint/formatting cleanup
+
 ## [2.7.0] - 2024-12-08
 
 ### 🎨 Major UI Overhaul - Collapsible Settings & Enhanced Domains
@@ -77,7 +95,7 @@ This release represents a complete rewrite and modernization of the extension wi
 ### ✨ Added
 - **Auto-Close Feature**: Automatically close duplicate tabs as they're detected (2-second debounce)
 - **Tab Suspender Compatibility**: Full support for Marvellous Suspender and other tab suspender extensions
-- **Keyboard Shortcuts**: Added `Ctrl+Shift+D` (Windows/Linux) and `Cmd+Shift+D` (Mac) to close duplicates
+- **Keyboard Shortcuts**: Added `Alt+Shift+D` (Windows/Linux) and `Option+Shift+D` (Mac) to close duplicates
 - **Enhanced Options Page**: Redesigned settings page with all features enabled
 - **Current Window Only**: Option to limit duplicate detection to the current window
 - **Comprehensive Error Handling**: All Chrome API calls now include proper error handling

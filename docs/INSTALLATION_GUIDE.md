@@ -147,7 +147,7 @@ After installation, verify these features work:
 - [ ] Clicking icon closes duplicate tabs
 - [ ] Active tabs are preserved
 - [ ] Pinned tabs are preserved
-- [ ] Keyboard shortcut works (`Ctrl+Shift+D`)
+- [ ] Keyboard shortcut works (`Alt+Shift+D`)
 - [ ] Options page opens and saves settings
 - [ ] Auto-close works (if enabled)
 - [ ] Current window only works (if enabled)

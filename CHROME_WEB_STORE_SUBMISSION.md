@@ -1,16 +1,17 @@
-# Chrome Web Store Submission Package - v2.7.0
+# Chrome Web Store Submission Package - v2.7.2
 
-## 📦 **Package Information**
+## Package Information
 
 ### File Details:
-- **Package Name**: `close-duplicate-tab-v2.7.0.zip`
+- **Package Name**: `close-duplicate-tab-v2.7.2.zip`
 - **Package Size**: 28.5 KB (well under Chrome Web Store 50MB limit)
-- **Version**: 2.7.0
+- **Version**: 2.7.2
 - **Manifest Version**: 3 (latest standard)
 
-### Package Contents:
+### Package Contents
+
 ```
-close-duplicate-tab-v2.7.0.zip (28.5 KB)
+close-duplicate-tab-v2.7.2.zip (28.5 KB)
 ├── manifest.json          (763 bytes)   - Extension configuration
 ├── close_tabs.js          (11.8 KB)     - Main extension logic
 ├── options.html           (18.2 KB)     - Settings page
@@ -66,7 +67,7 @@ Close Duplicate Tab helps you manage browser tab clutter by automatically detect
 • Smart tab preservation (keeps active and pinned tabs)
 • Works with tab suspender extensions (Marvellous Suspender, etc.)
 • Real-time badge showing duplicate count
-• Keyboard shortcut: Ctrl+Shift+D (Cmd+Shift+D on Mac)
+• Keyboard shortcut: Alt+Shift+D (Option+Shift+D on Mac)
 
 ⚙️ ADVANCED SETTINGS:
 • Auto-close: Automatically close duplicates as detected
@@ -100,12 +101,12 @@ Perfect for power users with many tabs, researchers, developers, and anyone who 
 - **tabs**: Required to detect duplicate tabs and close them
 - **storage**: Required to save user preferences and settings
 
-## 🚀 **Submission Steps**
+## 🚀 Submission Steps
 
-### 1. Chrome Web Store Developer Dashboard:
+### 1. Chrome Web Store Developer Dashboard
 1. Go to [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
 2. Click "Add new item"
-3. Upload `close-duplicate-tab-v2.7.0.zip`
+3. Upload `close-duplicate-tab-v2.7.2.zip`
 
 ### 2. Store Listing Information:
 - Upload the package zip file
