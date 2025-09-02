@@ -9,6 +9,7 @@ A Chrome extension that automatically identifies and closes duplicate browser ta
 3. **Chrome**: Go to `chrome://extensions/` and enable "Developer mode"
 4. **Load**: Click "Load unpacked" and select the `extension` folder
 5. **Done**: Start closing duplicate tabs! 🎉
+[Install from Chrome Web Store](https://chromewebstore.google.com/detail/close-duplicate-tab/mbbfopgippcdjokhcejceahaiagjlpgn)
 
 ## Features
 
@@ -22,7 +23,10 @@ A Chrome extension that automatically identifies and closes duplicate browser ta
 ## Installation
 
 ### From Chrome Web Store
-*Coming soon - the extension is currently being updated to Manifest V3*
+
+Install from the Chrome Web Store:
+
+[Close Duplicate Tab — Chrome Web Store](https://chromewebstore.google.com/detail/close-duplicate-tab/mbbfopgippcdjokhcejceahaiagjlpgn)
 
 ### Manual Installation (Developer Mode)
 1. Download or clone this repository
@@ -217,6 +221,8 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 This project is open source. See the repository for license details.
 
 ## Support
+
+- Install from Chrome Web Store: [Close Duplicate Tab — Chrome Web Store](https://chromewebstore.google.com/detail/close-duplicate-tab/mbbfopgippcdjokhcejceahaiagjlpgn)
 
 - Report issues on [GitHub Issues](https://github.com/skippdot/Close-Duplicate-Tab/issues)
 - For Chrome Web Store related questions, use the store's support system
