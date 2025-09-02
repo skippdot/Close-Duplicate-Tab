@@ -21,6 +21,7 @@ export default [
         window: 'readonly',
         URL: 'readonly',
         URLSearchParams: 'readonly',
+        fetch: 'readonly',
         
         // Test globals (for tests/ directory)
         describe: 'readonly',
@@ -95,11 +96,15 @@ export default [
   {
     // Specific rules for test files
     files: ['tests/**/*.js'],
+    languageOptions: {
+      sourceType: 'commonjs'
+    },
     rules: {
       // Allow longer lines in tests for readability
       'max-len': 'off',
       // Allow more flexible naming in tests
-      'camelcase': 'off'
+      'camelcase': 'off',
+      'no-undef': 'off'
     }
   },
   {
